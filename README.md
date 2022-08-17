@@ -31,8 +31,8 @@ Moneyforest
 | nickname | string | null: false |                  
 | email | string | null: false, unique: true |
 | encrypted_password | string | null: false |
-| age_id（active_hash） | integer | null: false |
-| category_id（active_hash） | integer | null: false |
+| age_id | integer | null: false |
+| category_id | integer | null: false |
 
 
 ### Association
@@ -45,8 +45,8 @@ Moneyforest
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
 | money | integer | null: false |                    
-| account_id（active_hash） | integer | null: false |
-
+| account_id | integer | null: false |
+| user | references | null: false, foreign_key: true |
 
 ### Association
 

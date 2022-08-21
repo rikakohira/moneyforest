@@ -39,6 +39,8 @@ Moneyforest
 
 - has_many :records
 
+## informationsテーブル
+
 
 ## recordsテーブル
 

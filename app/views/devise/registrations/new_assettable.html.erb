@@ -1,0 +1,17 @@
+<h2>２ページ目</h2>
+
+<%= form_for @assettable do |f| %>
+  <%= render "devise/shared/error_messages", resource: @assettable %>
+
+  <div class="field">
+    <%= f.label "金額を入力" %><br />
+    <%= f.text_field :balance %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

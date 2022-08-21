@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_21_101034) do
+ActiveRecord::Schema.define(version: 2022_08_21_121042) do
+
+  create_table "asset_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "assettable_id", null: false
+    t.bigint "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assettable_id"], name: "index_asset_lists_on_assettable_id"
+    t.index ["list_id"], name: "index_asset_lists_on_list_id"
+  end
 
   create_table "assettables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "balance", null: false
@@ -52,6 +61,8 @@ ActiveRecord::Schema.define(version: 2022_08_21_101034) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "asset_lists", "assettables"
+  add_foreign_key "asset_lists", "lists"
   add_foreign_key "assettables", "users"
   add_foreign_key "debttables", "users"
 end

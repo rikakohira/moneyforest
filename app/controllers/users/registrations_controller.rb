@@ -13,9 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      unless @user.valid?
        render :new and return
      end
-    #userキーの中にuserテーブル情報をハッシュで格納→sessionにて保持
     session["devise.regist_data"] = {user: @user.attributes}
-    #userキーのpasswordを再度代入
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @assettable = @user.build_assettable
     render :new_assettable
@@ -27,16 +25,36 @@ class Users::RegistrationsController < Devise::RegistrationsController
      unless @assettable.valid?
        render :new_assettable and return
      end
+     session["devise.regist_data"]["assettable"] = {assettable: @assettable.attributes}
+     @debttable = @user.build_debttable
+     render :new_debttable
+  end
+
+  def create_debttable
+    @user = User.new(session["devise.regist_data"]["user"])
+    @assettable = Assettable.new(session["devise.regist_data"]["assettable"]["assettable"])
     @user.build_assettable(@assettable.attributes)
     @user.save
-    session["devise.regist_data"]["user"].clear
+    @debttable = Debttable.new(debttable_params)
+     unless @debttable.valid?
+       render :new_debttable and return
+     end
+    @user.build_debttable(@debttable.attributes)
+    @user.save
+    
+    session["devise.regist_data"].clear
     sign_in(:user, @user)
   end
+ 
  
   private
  
   def assettable_params
     params.require(:assettable).permit(:balance)
+  end
+
+  def debttable_params
+    params.require(:debttable).permit(:balance)
   end
 
 

@@ -24,7 +24,7 @@ Moneyforest
 
 # テーブル設計
 
-## usersテーブル
+# usersテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
@@ -38,36 +38,36 @@ Moneyforest
 ### Association
 
 
-- has_one :shisan_input
-- has_one :fusai_input
+- has_one :assettable
+- has_one :debttable
 
 
-## shisan_inputsテーブル
-
-| Column                | Type         | Options                   |
-| --------------------- | ------------ | ------------------------- |
-| balance | integer | null: false |    
-
-
-### Association
-
-- belongs_to :user
-- has_many :shisan_lists
-- has_many :lists , through: :shisan_lists
-
-
-## fusai_inputsテーブル
+## assettablesテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
 | balance | integer | null: false |    
+| user | references | null: false, foreign_key: true |
 
+### Association
+
+- belongs_to :user　
+- has_many :asset_lists
+- has_many :lists , through: :asset_lists
+
+
+## debttablesテーブル
+
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| balance | integer | null: false |    
+| user | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :fusai_lists
-- has_many :lists , through: :fusai_lists
+- has_many :debt_lists
+- has_many :lists , through: :debt_lists
 
 
 ## listsテーブル
@@ -81,10 +81,39 @@ Moneyforest
 
 
 ### Association
-- has_many :shisan_lists
-- has_many :shisan_inputs, through: :shisan_lists
-- has_many :fusai_lists
-- has_many :fusain_inputs , through: :fusai_lists
+- has_many :asset_lists
+- has_many :assettables, through: :asset_lists
+- has_many :debt_lists
+- has_many :debttables , through: :debt_lists
+
+
+## asset_lists 中間テーブル
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| assettable | references | null: false, foreign_key: true |
+| list | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :assettable
+- belongs_to :list
+
+
+## debt_lists 中間テーブル
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| debttable | references | null: false, foreign_key: true |
+| list | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :debttable
+- belongs_to :list
+
+
+
+
+
+
+
 
 
 

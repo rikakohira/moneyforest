@@ -3,6 +3,13 @@
 <%= form_for @assettable do |f| %>
   <%= render "devise/shared/error_messages", resource: @assettable %>
 
+ <select>
+	<option value="">--</option>
+   <% List.where(code: 100..199).each do |list| %>
+     <option><%= list.code_name %></option>
+   <% end %>
+  </select>
+
   <div class="field">
     <%= f.label "金額を入力" %><br />
     <%= f.text_field :balance %>

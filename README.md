@@ -24,7 +24,7 @@ Moneyforest
 
 # テーブル設計
 
-## usersテーブル
+# usersテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
@@ -37,22 +37,66 @@ Moneyforest
 
 ### Association
 
-- has_many :records
 
-## informationsテーブル
+- has_one :assettable
+- has_one :debttable
 
 
-## recordsテーブル
+## assettablesテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
-| money | integer | null: false |                    
-| account_id | integer | null: false |
+| balance | integer | null: false | 
 | user | references | null: false, foreign_key: true |
+| list | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :list
+
+
+
+## debttablesテーブル
+
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| balance | integer | null: false |  
+| user | references | null: false, foreign_key: true |
+| list | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :list
+
+
+## listsテーブル
+
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| group | string | null: false | 
+| code | integer | null: false | 
+| code_name  | string | null: false | 
+| memo  | string |  | 
+
+
+### Association
+
+- has_many :assettables
+- has_many :debttables
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 面遷移図

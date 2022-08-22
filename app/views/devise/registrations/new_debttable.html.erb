@@ -1,0 +1,22 @@
+<h2>３ページ目</h2>
+
+<%= form_with model: @debttable, local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: @debttable %>
+
+ <div class="field">
+  <%= f.label "選択してください" %>
+  <%= f.collection_select :list_id, List.where(code: 200..299), :id, :code_name, :include_blank => "--" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "金額を入力" %><br />
+    <%= f.text_field :balance %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

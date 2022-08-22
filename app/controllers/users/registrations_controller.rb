@@ -50,11 +50,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
  
   def assettable_params
-    params.require(:assettable).permit(:balance)
+    params.require(:assettable).permit(:balance,:list_id)
   end
 
   def debttable_params
-    params.require(:debttable).permit(:balance)
+    params.require(:debttable).permit(:balance, :list_id)
   end
 
 

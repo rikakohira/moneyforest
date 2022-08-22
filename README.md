@@ -46,28 +46,29 @@ Moneyforest
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
-| balance | integer | null: false |    
+| balance | integer | null: false | 
 | user | references | null: false, foreign_key: true |
+| list | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user　
-- has_many :asset_lists
-- has_many :lists , through: :asset_lists
+- belongs_to :user
+- belongs_to :list
+
 
 
 ## debttablesテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
-| balance | integer | null: false |    
+| balance | integer | null: false |  
 | user | references | null: false, foreign_key: true |
+| list | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :debt_lists
-- has_many :lists , through: :debt_lists
+- belongs_to :list
 
 
 ## listsテーブル
@@ -81,32 +82,10 @@ Moneyforest
 
 
 ### Association
-- has_many :asset_lists
-- has_many :assettables, through: :asset_lists
-- has_many :debt_lists
-- has_many :debttables , through: :debt_lists
 
+- has_many :assettables
+- has_many :debttables
 
-## asset_lists 中間テーブル
-| Column                | Type         | Options                   |
-| --------------------- | ------------ | ------------------------- |
-| assettable | references | null: false, foreign_key: true |
-| list | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :assettable
-- belongs_to :list
-
-
-## debt_lists 中間テーブル
-| Column                | Type         | Options                   |
-| --------------------- | ------------ | ------------------------- |
-| debttable | references | null: false, foreign_key: true |
-| list | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :debttable
-- belongs_to :list
 
 
 

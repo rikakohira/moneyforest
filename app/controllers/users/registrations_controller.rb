@@ -10,53 +10,48 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-     unless @user.valid?
-       render :new and return
-     end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    render :new and return unless @user.valid?
+
+    session['devise.regist_data'] = { user: @user.attributes }
+    session['devise.regist_data'][:user]['password'] = params[:user][:password]
     @assettable = @user.build_assettable
     render :new_assettable
   end
- 
+
   def create_assettable
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session['devise.regist_data']['user'])
     @assettable = Assettable.new(assettable_params)
-     unless @assettable.valid?
-       render :new_assettable and return
-     end
-     session["devise.regist_data"]["assettable"] = {assettable: @assettable.attributes}
-     @debttable = @user.build_debttable
-     render :new_debttable
+    render :new_assettable and return unless @assettable.valid?
+
+    session['devise.regist_data']['assettable'] = { assettable: @assettable.attributes }
+    @debttable = @user.build_debttable
+    render :new_debttable
   end
 
   def create_debttable
-    @user = User.new(session["devise.regist_data"]["user"])
-    @assettable = Assettable.new(session["devise.regist_data"]["assettable"]["assettable"])
+    @user = User.new(session['devise.regist_data']['user'])
+    @assettable = Assettable.new(session['devise.regist_data']['assettable']['assettable'])
     @user.build_assettable(@assettable.attributes)
     @user.save
     @debttable = Debttable.new(debttable_params)
-     unless @debttable.valid?
-       render :new_debttable and return
-     end
+    render :new_debttable and return unless @debttable.valid?
+
     @user.build_debttable(@debttable.attributes)
     @user.save
-    
-    session["devise.regist_data"].clear
+
+    session['devise.regist_data'].clear
     sign_in(:user, @user)
   end
- 
- 
+
   private
- 
+
   def assettable_params
-    params.require(:assettable).permit(:balance,:list_id)
+    params.require(:assettable).permit(:balance, :list_id)
   end
 
   def debttable_params
     params.require(:debttable).permit(:balance, :list_id)
   end
-
 
   # GET /resource/sign_up
   # def new

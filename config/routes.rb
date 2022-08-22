@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root  'top#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -9,5 +11,4 @@ Rails.application.routes.draw do
     post 'debttables', to: 'users/registrations#create_debttable'
   end
 
-  root to: 'top#index'
 end

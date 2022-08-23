@@ -32,13 +32,13 @@
   </div>
 
 <div class="form-group">
-<label for="inputState">年齢</label>
+ <%= f.label "年齢" %>
  <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"form-control"}) %>
   </div>
 
 
  <div class="form-group">
-<label for="inputState">ライフスタイル</label>
+<%= f.label "ライフスタイル" %>
  <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control"}) %>
   </div>
 

@@ -1,6 +1,6 @@
 class Age < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },
+    { id: 1, name: '選択してください' },
     { id: 2, name: '20歳未満' },
     { id: 3, name: '21歳~25歳' },
     { id: 4, name: '26歳~30歳' },

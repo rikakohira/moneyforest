@@ -14,20 +14,34 @@
 
 /*** フォーム ***/
 
-.form_area {
+.form-area1 {
   width: 500px;
-  height: 680px;
+  height: 700px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
   border-radius: 18px;
 }
 
-.form-header {
+.form-area2 {
+  width: 500px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+}
+
+.form-header1 {
   height: 100px;
   padding-top: 20px;
 }
 
-.form_title {
+.form-header2 {
+  height: 100px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
+.form-title {
   font-family: 'Arima Madurai';
   font-size: 27px;
   color: #000000;
@@ -43,11 +57,6 @@
 }
 
 
-
-
-
-
-
 .form-group {
   width: 50%;
   display: flex;
@@ -56,8 +65,13 @@
   padding-top: 20px;
 }
 
+
+.form-label {
+font-size: 13px;
+}
+
 .form-bottom-text {
   font-size: 15px;
-  margin-top: 40px;
+  margin: 30px 0;
   text-align: center;
 }

@@ -3,8 +3,6 @@
   height: 100vh;  
 }
 
-
-
 /****** ヘッダー ******/
 
 .header {
@@ -26,6 +24,13 @@
   text-decoration: none;
 }
 
+.button {
+  display: flex;
+}
+
+.login-btn {
+  margin-right: 20px;
+}
 
 /****** メイン ******/
 

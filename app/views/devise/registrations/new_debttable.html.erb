@@ -1,36 +1,29 @@
 <div class="wrapper">
-<%= render "shared/header" %>
+  <%= render "shared/header" %>
 
-
-
-<%= form_with model: @debttable,class: 'registration-main', local: true do |f| %>
+  <%= form_with model: @debttable,class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: @debttable %>
 
- <div class="form-area1">
+    <%# 入力フォーム %>
+    <div class="form-area1">
       <div class='form-header1'>
         <h1 class="form-title">負債</h1>
         <p class="form-content">現在の負債状況について教えてください。</p>
       </div>
+      <form>
+        <div class="form-group">
+          <%= f.label "勘定科目" %>
+          <%= f.collection_select :list_id, List.where(code: 200..299), :id, :code_name, class:"form-control", include_blank: "選択してください" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "金額を入力" %>
+          <%= f.text_field :balance,  class: "form-control", placeholder:"例) 1000" %>
+        </div>
+        <div class='form-bottom-text'>
+          <%= f.submit "登録" ,class: "btn btn-outline-secondary"%>
+        </div>
+      </form>
+    </div>
 
-
-  <form>
-
-<div class="form-group">
-  <%= f.label "勘定科目" %>
-  <%= f.collection_select :list_id, List.where(code: 200..299), :id, :code_name, class:"form-control", include_blank: "選択してください" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "金額を入力" %>
-    <%= f.text_field :balance,  class: "form-control", placeholder:"例) 1000" %>
-  </div>
-
-
-  <div class='form-bottom-text'>
-  <div class="register-btn">
-    <%= f.submit "登録" ,class: "btn btn-outline-secondary"%>
-  </div>
-   </div>
-  </form>
-<% end %>
+  <% end %>
 </div>

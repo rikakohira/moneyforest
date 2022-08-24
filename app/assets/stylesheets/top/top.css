@@ -1,8 +1,40 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;  
+}
+
 
 
 /****** ヘッダー ******/
 
+.header {
+  width: 100%;
+  height: 70px;
+  background: rgba(102, 136, 75, 0.9);
+  padding: 0px 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.logo a {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  color: #ffffff;
+  text-decoration: none;
+}
 
 
 /****** メイン ******/
+
+.mein {
+  width: 100%;
+  height: calc(100vh - 70px) ;
+  background: rgba(215, 218, 202, 0.25);
+}
+
+.top_img {
+  width: 100%
+}

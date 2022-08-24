@@ -1,11 +1,17 @@
+<div class="wrapper">
+<%= render "shared/header" %>
+
+
+
 <%= form_with model: @debttable,class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: @debttable %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      ３ページ目
-    </h1>
-  </div>
+
+ <div class="form_area">
+      <div class='form-header'>
+        <h1 class="form_title">負債</h1>
+        <p class="form-content">現在の負債状況について教えてください。</p>
+      </div>
+
 
   <form>
 
@@ -27,3 +33,4 @@
    </div>
   </form>
 <% end %>
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'books/index'
   root to: 'top#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations'

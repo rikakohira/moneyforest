@@ -12,19 +12,12 @@
   justify-content: center;
 }
 
-/*** フォーム ***/
+/*********** フォーム ***********/
 
+/* 新規登録フォーム */
 .form-area1 {
   width: 500px;
   height: 700px;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
-  border-radius: 18px;
-}
-
-.form-area2 {
-  width: 500px;
-  height: 250px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
   border-radius: 18px;
@@ -35,11 +28,38 @@
   padding-top: 20px;
 }
 
+
+/* 登録完了フォーム */
+.form-area2 {
+  width: 500px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+}
+
 .form-header2 {
   height: 100px;
   padding-top: 50px;
   margin-bottom: 50px;
 }
+
+/* ログインフォーム */
+.form-area3 {
+  width: 500px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+}
+
+.form-header3 {
+  height: 100px;
+  padding-top: 40px;
+}
+
+
+
 
 .form-title {
   font-family: 'Arima Madurai';
@@ -72,6 +92,6 @@ font-size: 13px;
 
 .form-bottom-text {
   font-size: 15px;
-  margin: 30px 0;
+  margin: 25px 0;
   text-align: center;
 }

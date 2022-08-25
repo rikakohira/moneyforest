@@ -76,6 +76,10 @@
   text-align: center;
 }
 
+.form-input {
+  height: 500px;
+  padding: 0 30px;
+}
 
 .form-group {
   width: 50%;
@@ -84,6 +88,7 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+
 
 
 .form-label {

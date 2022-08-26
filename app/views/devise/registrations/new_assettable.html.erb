@@ -4,29 +4,29 @@
   <%= form_with model: @assettable, class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: @assettable %>
 
-    <%# 入力フォーム %>
+    <%# フォームエリア %>
     <div class="form-area1">
       <div class='form-header1'>
         <h1 class="form-title">資産</h1>
         <p class="form-content">現在の資産状況について教えてください。</p>
       </div>
 
+      <%# フォームエリア %>
       <div class="form-input">
-        <div class="form-group">
+        <div class="form-field">
           <%= f.collection_select :list_id, List.where(code: 100..199), :id, :code_name, class: "form-select form-select-sm", include_blank:  "選択してください" %>
-        </div>
-        <div class="input-group flex-nowrap">
           <%= f.text_field :balance,  class: "form-control form-control-sm", placeholder:"例) 1000" %>
+          <input  type="button" value="削除" class="del">
         </div>
-        <div class="form-group col">
-          <%= f.submit "追加" ,class: "btn btn-outline-secondary"%>
-        </div>
+          <input  type="button" value="追加" id="add">
+      </div>
+      <div class='form-bottom-text'>
+        <%= f.submit "次へ" ,class: "btn btn-outline-secondary"%>
+      </div>  
         </div>
         </div>
 
-        <div class='form-bottom-text'>
-          <%= f.submit "次へ" ,class: "btn btn-outline-secondary"%>
-        </div>
+        
     </div>
  
 

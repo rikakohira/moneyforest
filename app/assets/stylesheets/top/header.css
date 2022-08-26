@@ -17,11 +17,11 @@
 
 .logo a {
   font-family: 'Gotu';
-  font-style: normal;
   font-weight: 900;
   font-size: 27px;
   color: #ffffff;
   text-decoration: none;
+  letter-spacing: 0.001em;
   margin-left: 25px;
 }
 

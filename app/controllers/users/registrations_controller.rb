@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  #1ページ目の情報をsessionに保持
   def create
     @user = User.new(sign_up_params)
     render :new and return unless @user.valid?
@@ -18,7 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_assettable
   end
 
+  #1, 2ページ目の情報をsessionに保持
   def create_assettable
+    binding.pry
     @user = User.new(session['devise.regist_data']['user'])
     @assettable = Assettable.new(assettable_params)
     render :new_assettable and return unless @assettable.valid?
@@ -28,6 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_debttable
   end
 
+  #1〜3ページの情報を保存
   def create_debttable
     @user = User.new(session['devise.regist_data']['user'])
     @assettable = Assettable.new(session['devise.regist_data']['assettable']['assettable'])

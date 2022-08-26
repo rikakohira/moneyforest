@@ -1,7 +1,7 @@
 /****** メイン ******/
 
 .mein {
-  width: 100％;
+  width: 100%;
   height: calc(100vh - 70px) ;
   background: rgba(215, 218, 202, 0.25);
   position: relative;

@@ -3,12 +3,10 @@ var minCount = 0;
 var maxCount = 5;
 
 document.getElementById('add-btn').addEventListener('click', function addForm() {
-// セレクトボックス生成（元の要素を取得しコピーを生成する）
+//フォーム生成
 var select = document.getElementById("assettable-list_0");
 var select_copy = select.cloneNode(true);
 select_copy.class = 'assettable-list_' + i;
-
-// 残高フォーム生成
 var input = document.getElementById("assettable-balance_0");
 var input_copy = input.cloneNode(true);
 input_copy.id = 'assettable-balance_' + i;

@@ -1,4 +1,4 @@
-const i = 1 ;
+var i = 1 ;
 const minCount = 0;
 const maxCount = 5;
 
@@ -7,7 +7,9 @@ function addForm() {
   const add = document.getElementById("add-btn");
   add.addEventListener("click", () => {
     //フォーム生成
-    const select = document.getElementById("selectbox_0");
+    const select_div = document.getElementById("selectbox_0");
+    const select_div_copy = select_div.cloneNode(true);
+    const select = select_div.childNodes.item(0);
     const select_copy = select.cloneNode(true);
     select_copy.id = 'selectbox_' + i;
     select_copy.name = 'selectbox_' + i;
@@ -18,7 +20,7 @@ function addForm() {
     input_copy.value = ''
     if (i < maxCount) { 
     const parent = document.getElementById('form-field');
-    parent.appendChild(select_copy);
+    parent.appendChild(select_div_copy);
     parent.appendChild(input_copy);
     }
     

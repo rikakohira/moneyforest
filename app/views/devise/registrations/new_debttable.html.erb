@@ -13,12 +13,14 @@
         
       <%# フォームエリア %>
       <div class="form-input">
-        <div class="form-field">
+        <div class="form-field" id="form-field">
+          <div id= "selectbox_0">
           <%= f.collection_select :list_id, List.where(code: 200..299), :id, :code_name, class:"form-control", include_blank: "選択してください" %>
-          <%= f.text_field :balance,  class: "form-control", placeholder:"例) 1000" %>
-          <input  type="button" value="削除" class="del">
+          </div>
+          <%= f.text_field :balance, placeholder:"例) 1000" ,id: "input-balance_0"%>
+          <button id="0" onclick="deleteBtn(this)">削除</button>
         </div>
-          <input  type="button" value="追加" id="add">
+          <input type="button" value="追加" id="add-btn">
       </div>
       <div class='form-bottom-text'>
         <%= f.submit "登録" ,class: "btn btn-outline-secondary"%>

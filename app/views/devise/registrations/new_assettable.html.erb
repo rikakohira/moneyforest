@@ -14,22 +14,20 @@
       <%# フォームエリア %>
       <div class="form-input">
         <div class="form-field" id="form-field">
-            <div id= "assettable-list_0">
+            <div class="selectbox" id="selectbox_0">
             <%= f.collection_select :list_id, List.where(code: 100..199), :id, :code_name, class: "form-select form-select-sm", include_blank:  "選択してください" %>
             </div>
-          <%= f.text_field :balance, placeholder:"例) 1000" ,id: "assettable-balance_0"%>
+          <%= f.text_field :balance, placeholder:"例) 1000" ,id: "input-balance_0"%>
           <button id="0" onclick="deleteBtn(this)">削除</button>
         </div>
+          <%#input type="button" value="削除" id="delete-btn"%>
           <input type="button" value="追加" id="add-btn"> 
       </div>
+
+
       <div class='form-bottom-text'>
         <%= f.submit "次へ" ,class: "btn btn-outline-secondary"%>
       </div>  
-        </div>
-        </div>
-
-        
-    </div>
  
   <% end %>
 </div>

@@ -15,7 +15,7 @@
       <div class="form-input">
         <div class="form-field" id="form-field">
             <div class="selectbox" id="selectbox_0">
-            <%= f.collection_select :list_id, List.where(code: 100..199), :id, :code_name, { prompt: false }, class: "form-select form-select-sm", include_blank:  "選択してください" ,class:"col-auto" %>
+            <%= f.collection_select :list_id, List.where(code: 100..199), :id, :code_name, { prompt: false }, class: "form-select form-select-sm", include_blank:  "選択してください" %>
             </div>
           <%= f.text_field :balance, placeholder:"例) 1000" ,id: "input-balance_0"%>
           <button id="0" onclick="deleteBtn(this)" class="btn btn-secondary btn-sm">削除</button>

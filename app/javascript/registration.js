@@ -10,9 +10,11 @@ function addForm() {
     const select = document.getElementById("selectbox_0");
     const select_copy = select.cloneNode(true);
     select_copy.id = 'selectbox_' + i;
+    select_copy.name = 'selectbox_' + i;
     const input = document.getElementById("input-balance_0");
     const input_copy = input.cloneNode(true);
     input_copy.id = 'input-balance_' + i;
+    input_copy.name = 'input-balance_' + i;
     input_copy.value = ''
     if (i < maxCount) { 
     const parent = document.getElementById('form-field');

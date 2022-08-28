@@ -9,14 +9,14 @@ function addForm() {
     //フォーム生成
     const select_div = document.getElementById("selectbox_0");
     const select_div_copy = select_div.cloneNode(true);
-    const select = select_div.childNodes.item(0);
-    const select_copy = select.cloneNode(true);
-    select_copy.id = 'selectbox_' + i;
-    select_copy.name = 'selectbox_' + i;
+    //子要素１つぬきだしてくる
+    const select = select_div_copy.childNodes[1];
+    select_div_copy.id = 'selectbox_' + i;
+    select.name = 'selectbox_' + i;
     const input = document.getElementById("input-balance_0");
     const input_copy = input.cloneNode(true);
     input_copy.id = 'input-balance_' + i;
-    input_copy.name = 'input-balance_' + i;
+    input_copy.name = 'input_balance_' + i;
     input_copy.value = ''
     if (i < maxCount) { 
     const parent = document.getElementById('form-field');
@@ -32,11 +32,11 @@ function addForm() {
     button_data.innerHTML = '削除';
     if (i < maxCount) { 
     const parent = document.getElementById('form-field');
-    var input_area = document.getElementById(select_copy.id);
+    var input_area = document.getElementById(select_div_copy.id);
     parent.appendChild(button_data);
     }
     i++ ;
-	});
+ });
  };
 window.addEventListener('load', addForm);
 
@@ -51,13 +51,6 @@ window.deleteBtn = function(target){
    if (target_id > minCount){
   parent.removeChild(slt_id);
   parent.removeChild(ipt_id);
-  parent.removeChild(tgt_id);	
+  parent.removeChild(tgt_id); 
   }  
 }
-
-    
-
-
-
-
-  

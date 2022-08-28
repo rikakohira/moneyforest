@@ -21,7 +21,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #1, 2ページ目の情報をsessionに保持
   def create_assettable
-    binding.pry
     @user = User.new(session['devise.regist_data']['user'])
     @assettable = Assettable.new(assettable_params)
     render :new_assettable and return unless @assettable.valid?
@@ -50,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def assettable_params
-    params.require(:assettable).permit(:balance, :list_id)
+    params.require(:assettable).permit(:balance, :list_id, :selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, :input_balance_1, :input_balance_2, :input_balance_3, :input_balance_4, :input_balance_5)
   end
 
   def debttable_params

@@ -23,6 +23,7 @@ function addForm() {
     //削除ボタン生成
     const button_data = document.createElement('button');
     button_data.id = i;
+    button_data.className = 'btn btn-secondary btn-sm';
     button_data.onclick = function(){deleteBtn(this);}
     button_data.innerHTML = '削除';
     if (i < maxCount) { 

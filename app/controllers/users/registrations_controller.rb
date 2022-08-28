@@ -49,11 +49,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def assettable_params
-    params.require(:assettable).permit(:balance, :list_id, :selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, :input_balance_1, :input_balance_2, :input_balance_3, :input_balance_4, :input_balance_5)
+    params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, assettable: [:balance, :list_id])
   end
 
   def debttable_params
-    params.require(:debttable).permit(:balance, :list_id)
+    params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, debttable: [:balance, :list_id])
   end
 
   # GET /resource/sign_up

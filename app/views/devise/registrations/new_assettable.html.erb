@@ -4,7 +4,7 @@
   <%= form_with model: @assettable, class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: @assettable %>
 
-    <%# フォームエリア %>
+    <%# フォームエリア >
     <div class="form-area1">
       <div class='form-header1'>
         <h1 class="form-title">資産</h1>
@@ -12,22 +12,35 @@
       </div>
 
       <%# フォームエリア %>
-      <div class="form-input">
-        <div class="form-field" id="form-field">
-            <div class="selectbox" id="selectbox_0">
-            <%= f.collection_select :list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
-            </div>
-          <%= f.text_field :balance, placeholder:"例) 1000" ,id: "input-balance_0"%>
-          <button id="0" onclick="deleteBtn(this)" class="btn btn-secondary btn-sm">削除</button>
-        </div>
-          <input type="button" value="追加" id="add-btn" class="btn btn-success btn-sm"> 
-      </div>
+     <table class="table">
+<thead>
+  <tr>
+    <th width="60px">登録</th>
+    <th>勘定科目</th>
+    <th>残高</th>
+  </tr>
+</thead>
+<tbody class="bulk-registration-form">
+<%= f.fields_for :assettables do |f| %>
 
-
-      <div class='form-bottom-text'>
-        <%= f.submit "次へ" ,class: "btn btn-outline-secondary"%>
-      </div>  
- 
+  <tr class="item">
+    <td class="text-center">
+  <%= f.check_box :availability %>
+  </td>
+    <td>
+  <%= f.collection_select :list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+  </td>
+  <td>
+<%= f.text_field :balance, placeholder:"例) 1000" ,id: "input-balance_0", class: 'form-control'%>
+  </td>
+</tr>
+    <% end %>
+    </tbody>
+</table>
+<%= f.submit  "次へ" ,class: "btn btn-outline-secondary"%>
   <% end %>
+
 </div>
+
+
 

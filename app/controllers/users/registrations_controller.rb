@@ -1,30 +1,31 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
 
   def new
     @user = User.new
   end
 
-  #1ページ目の情報をsessionに保持
+ 
   def create
     @user = User.new(sign_up_params)
     render :new and return unless @user.valid?
-
+    #1ページ目のユーザー情報をsessionに保持
     session['devise.regist_data'] = { user: @user.attributes }
     session['devise.regist_data'][:user]['password'] = params[:user][:password]
+    
+    #ここでForm::AssetCollectionを生成することはできない？
     @assettable = @user.build_assettable
     render :new_assettable
   end
 
-  #1, 2ページ目の情報をsessionに保持
+
   def create_assettable
+    #binding.pry
     @user = User.new(session['devise.regist_data']['user'])
-    @assettable = Assettable.new(assettable_params)
+    #3つのインスタンスを生成できてる
+    @assettable = Form::AssetCollection.new(asset_collection_params)
     render :new_assettable and return unless @assettable.valid?
 
+    #2ページ目のユーザー情報をsessionに保持
     session['devise.regist_data']['assettable'] = { assettable: @assettable.attributes }
     @debttable = @user.build_debttable
     render :new_debttable
@@ -48,9 +49,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def assettable_params
-    params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, assettable: [:balance, :list_id])
-  end
+  #def assettable_params
+    #params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, assettable: [:balance, :list_id])
+  #end
 
   def debttable_params
     params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, debttable: [:balance, :list_id])

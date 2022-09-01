@@ -1,7 +1,7 @@
 <%# ログアウトユーザーヘッダー %>
 <header class="header">
   <div class='logo'>
-    <%= link_to 'Money forest', new_user_session_path%>
+    <%= link_to 'Money forest', destroy_user_session_path, method: :DELETE %>
   </div>
   <div class='button'>
     <div class='login-btn'>
@@ -12,3 +12,4 @@
     </div>
   </div>
 </header>
+

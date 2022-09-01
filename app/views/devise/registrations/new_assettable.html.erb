@@ -1,68 +1,72 @@
 <div class="wrapper">
   <%= render "devise/shared/header" %>
-
   <%= form_with model: @assettable, url: assettables_path, method: :get, class: 'registration-main', local: true do |f| %>
-    
 
-      <div class="form-area1">
-        <div class='form-header1'>
-          <h1 class="form-title">資産残高入力フォーム</h1>
-          <p class="form-content">現在の資産情報を入力してください。</p>
+  <%# フォームヘッダー %>
+  <div class="form-area1">
+    <div class='form-header1'>
+      <h1 class="form-title">資産残高入力フォーム
+      </h1>
+      <p class="form-content">現在の資産情報を入力してください。
+      </p>
+    </div>
+    <div class="form-template">
+      <div class="example-content">
+        <p>どんな形でいくら持っていますか？
+          <br>例）現金で300万持っている
+        </p>
+      </div>
+      <div class="example-field">
+        <div class="example-select">
+          <select class="form-select form-select-sm"
+            disabled>
+            <option>現金
+            </option>
+          </select>
         </div>
-
-      <div class="form-template">
-        <div class="example-content">
-          <p>どんな形でいくら持っていますか？<br>
-              例）現金で300万持っている</p>
-        </div>
-
-        <div class="example-field">
-          <div class="example-select">
-            <select class="form-select form-select-sm" disabled>
-              <option>現金</option>
-            </select>
-          </div>
-          <div class="example-form">
-            <form>
-              <input class="form-control form-control-sm" type="text" placeholder="3000000" disabled>
-            </form>
-          </div>  
+        <div class="example-form">
+          <form>
+            <input class="form-control form-control-sm"
+              type="text"
+              placeholder="3000000"
+              disabled>
+          </form>
         </div>
       </div>
+    </div>
 
-
-
-  <%# 入力フォーム %>
-  <div class="form-table">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>勘定科目</th>
-          <th>残高</th>
-        </tr>
-      </thead>
-      <tbody class="bulk-registration-form">
-        <%= f.fields_for :assettables do |a_field| %>
+    <%# 入力フォーム %>
+    <div class="form-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>勘定科目
+            </th>
+            <th>残高
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bulk-registration-form">
+          <%= f.fields_for :assettables do |a_field| %>
           <tr class="item">
             <td class="list_field_box">
               <%= a_field.collection_select :list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
             </td>
             <td class="balance_field_box">
-              <%= a_field.text_field :balance, placeholder:"¥" ,id: "input-balance_0", class: 'form-control form-control-sm'%>
+              <%= a_field.text_field :balance, placeholder:"¥" class: 'form-control form-control-sm'%>
             </td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <div class='form-bottom-text'>
-      <%= f.submit  "次へ", class: "btn btn-outline-secondary", id: "assettable_submit", onclick: "return checkProperites()"%>
+          <% end %>
+        </tbody>
+      </table>
+      <div class='form-bottom-text'>
+        <%= f.submit  "次へ", class: "btn btn-outline-secondary", id: "assettable_submit", onclick: "return checkProperites()"%>
+      </div>
+      <% end %>
     </div>
+  </div>
+</div>
 
-  <% end %>
-</div>
-</div>
-</div>
 
 <script>
   //勘定項目か残高が入力されていない場合はアラートを出す

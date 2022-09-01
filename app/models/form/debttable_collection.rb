@@ -6,7 +6,7 @@ class Form::DebttableCollection
   include ActiveModel::Validations::Callbacks
 
   # 作成したい登録フォームの数を指定
-  FORM_COUNT = 5
+  FORM_COUNT = 6
   # クラス外部からproductsへのアクセスが可能
   attr_accessor :users, :debttables, :list_id, :balance, :debttables_attributes, :form_debttable_collection
 

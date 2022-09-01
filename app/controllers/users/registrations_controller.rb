@@ -40,8 +40,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     debttables.save
     session['devise.regist_data'].clear
     sign_in user
-
-    redirect_to books_path
+    # 新規登録完了画面へ遷移
+    redirect_to users_sign_up_complete_path
   end
 
   private

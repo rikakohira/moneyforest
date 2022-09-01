@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'assettables', to: 'users/registrations#new_assettable'
     post 'create_assettable_and_debttable', to: 'users/registrations#create_assettable_and_debttable'
+    get 'users/sign_up/complete', to: 'devise/registrations#create_debttable'
   end
 
 end

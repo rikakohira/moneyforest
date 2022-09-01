@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_21_101034) do
+ActiveRecord::Schema.define(version: 2022_08_31_150842) do
 
   create_table "assettables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "balance", null: false
-    t.boolean "availability", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -25,7 +24,6 @@ ActiveRecord::Schema.define(version: 2022_08_21_101034) do
 
   create_table "debttables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "balance", null: false
-    t.boolean "availability", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false

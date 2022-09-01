@@ -1,45 +1,43 @@
 class Form::AssetCollection
-  #クラスをモデル化する
+  # クラスをモデル化する
   include ActiveModel::Model
   include ActiveModel::Callbacks
   include ActiveModel::Validations
   include ActiveModel::Validations::Callbacks
 
-  def value_to_boolean(value) ここの記述必要？
-    ActiveRecord::ConnectionAdapters::Column.value_to_boolean(value)
+  # 作成したい登録フォームの数を指定
+  FORM_COUNT = 5
+  # クラス外部からproductsへのアクセスが可能
+  attr_accessor :users, :assettables, :list_id, :balance, :assettables_attributes, :form_assettable_collection
+
+
+  # ハッシュにデータを格納
+  def initialize(user = nil, attributes = nil)
+    super(attributes)
+    @user = user
+    self.assettables = FORM_COUNT.times.map { Assettable.new } unless assettables.present?
   end
 
-  #作成したい登録フォームの数を指定
-  FORM_COUNT = 3
-  #クラス外部からproductsへのアクセスが可能
-  attr_accessor :users
-  attr_accessor :assettables
-
-
-  #ハッシュにデータを格納
-  def initialize(attributes = {})
-    super attributes
-    #mapは返り値で配列を作る
-    self.assettables = FORM_COUNT.times.map { Assettable.new() } unless self.assettables.present?
-  end
-
-  #コントローラからストロングパラメータを受け取る
   def assettables_attributes=(attributes)
-    self.assettables = attributes.map { |_, v| Assettable.new(v) }
+    # これで与えられたparamsの値をAssettableのオブジェクトに格納したい
+    self.assettables = attributes.map {|_, v| Assettable.new(v)}
+    # {balance=>100, list_id=>1}
   end
 
   def save
-    #transactionでデータベース内の情報の整合性を保つ
-    Assettable.transaction do
+    # transactionでデータベース内の情報の整合性を保つ
+    ## balanceとlist_idが存在すれば保存対象の配列に入れる
+    assettables = 
       self.assettables.map do |assettable|
-        #チェックボックスにチェックを入れている商品のみが保存される
-        if assettable.availability 
-          assettable.save
+        if assettable.balance.present? && assettable.list_id.present?
+          assettable.user = @user
+          assettable
         end
-      end
+      end.compact
+    Assettable.transaction do
+      assettables.map(&:save!)
     end
-      return true
-    rescue => e
-      return false
+  rescue StandardError => e
+    false
   end
 end

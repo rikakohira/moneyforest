@@ -2,7 +2,7 @@
   <%= render "devise/shared/header" %>
 
   <%= form_with model: @assettable, class: 'registration-main', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: @assettable %>
+    <%= render "devise/shared/error_messages", resource: @assettable %>
 
     <%# フォームエリア >
     <div class="form-area1">
@@ -13,15 +13,15 @@
 
       <%# フォームエリア %>
      <table class="table">
-<thead>
-  <tr>
-    <th width="60px">登録</th>
-    <th>勘定科目</th>
-    <th>残高</th>
-  </tr>
-</thead>
-<tbody class="bulk-registration-form">
-<%= f.fields_for :assettables do |f| %>
+      <thead>
+        <tr>
+          <th width="60px">登録</th>
+          <th>勘定科目</th>
+          <th>残高</th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">
+        <%= f.fields_for :assettables do |f| %>
 
   <tr class="item">
     <td class="text-center">

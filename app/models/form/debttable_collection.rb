@@ -10,7 +10,6 @@ class Form::DebttableCollection
   # クラス外部からproductsへのアクセスが可能
   attr_accessor :users, :debttables, :list_id, :balance, :debttables_attributes, :form_debttable_collection
 
-
   # ハッシュにデータを格納
   def initialize(user = nil, attributes = nil)
     super(attributes)
@@ -20,13 +19,13 @@ class Form::DebttableCollection
 
   def debttables_attributes=(attributes)
     # これで与えられたparamsの値をdebttableのオブジェクトに格納したい
-    self.debttables = attributes.map {|_, v| Debttable.new(v)}
+    self.debttables = attributes.map { |_, v| Debttable.new(v) }
   end
 
   def save
     # transactionでデータベース内の情報の整合性を保つ
     ## balanceとlist_idが存在すれば保存対象の配列に入れる
-    debttables = 
+    debttables =
       self.debttables.map do |debttable|
         if debttable.balance.present? && debttable.list_id.present?
           debttable.user = @user

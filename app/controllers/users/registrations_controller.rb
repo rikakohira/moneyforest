@@ -18,9 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # assettable情報をセッションに保存
   def new_assettable
     @user = User.new(session['devise.regist_data']['user'])
-    
+
     session['devise.regist_data']['assettable'] = { assettable: assettables_params }
-    @debttable = Form::DebttableCollection.new()
+    @debttable = Form::DebttableCollection.new
     render :new_debttable
   end
 
@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_assettable_and_debttable
     user = User.new(session['devise.regist_data']['user'])
     session_assettable = session['devise.regist_data']['assettable']
-    session_assettable = session_assettable["assettable"]
+    session_assettable = session_assettable['assettable']
 
     user.save
     assettables = Form::AssetCollection.new(user, session_assettable)

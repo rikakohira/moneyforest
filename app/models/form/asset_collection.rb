@@ -10,7 +10,6 @@ class Form::AssetCollection
   # クラス外部からproductsへのアクセスが可能
   attr_accessor :users, :assettables, :list_id, :balance, :assettables_attributes, :form_assettable_collection
 
-
   # ハッシュにデータを格納
   def initialize(user = nil, attributes = nil)
     super(attributes)
@@ -20,14 +19,14 @@ class Form::AssetCollection
 
   def assettables_attributes=(attributes)
     # これで与えられたparamsの値をAssettableのオブジェクトに格納したい
-    self.assettables = attributes.map {|_, v| Assettable.new(v)}
+    self.assettables = attributes.map { |_, v| Assettable.new(v) }
     # {balance=>100, list_id=>1}
   end
 
   def save
     # transactionでデータベース内の情報の整合性を保つ
     ## balanceとlist_idが存在すれば保存対象の配列に入れる
-    assettables = 
+    assettables =
       self.assettables.map do |assettable|
         if assettable.balance.present? && assettable.list_id.present?
           assettable.user = @user

@@ -2,32 +2,31 @@
   <%= render "devise/shared/header" %>
 
   <%= form_with model: @debttable, url: create_assettable_and_debttable_path, class: 'registration-main', local: true do |f| %>
-    <div class="form-area1">
-      <div class='form-header1'>
-        <h1 class="form-title">負債</h1>
-        <p class="form-content">現在の負債状況について教えてください。</p>
-      </div>
-        
-      <%# フォームエリア %>
-      <div class="form-input">
-        <div class="form-field" id="form-field">
-          <%= f.fields_for :debttables do |d_field| %>
-            <div class="list_field_box">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>勘定科目</th>
+          <th>残高</th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">   
+      <%= f.fields_for :debttables do |d_field| %>
+          <tr class="item">
+            <td class="list_field_box">
               <%= d_field.collection_select :list_id, List.where(code: 200..299), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm"  %>
-            </div>
-            <div class="balance_field_box">
+            </td>
+            <td class="balance_field_box">
               <%= d_field.text_field :balance, placeholder: "例) 1000"%>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class='form-bottom-text'>
-        <%= f.submit "登録", class: "btn btn-outline-secondary", onclick: "return checkProperites()"%>
-      </div>
-    </div>
-  <% end %>
-</div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
+    <%= f.submit "登録", class: "btn btn-outline-secondary", onclick: "return checkProperites()"%>
+  <% end %>
+
+</div>
 
 <script>
   //勘定項目か残高が入力されていない場合はアラートを出す
@@ -38,7 +37,7 @@
       target_list_field = list_fields[i]
       target_balance_field = balance_fields[i]
       if ((target_list_field.childNodes[1].options.selectedIndex == 0 && target_balance_field.childNodes[1].value) || (target_list_field.childNodes[1].options.selectedIndex >= 1 && target_balance_field.childNodes[1].value == "")) {
-        alert(`${i+1}行の負債のカテゴリーか負債状況が入力されていません。`)
+        alert(`エラー ${i+1}行の勘定科目or残高が入力されていません。`)
         return false
       }
     }

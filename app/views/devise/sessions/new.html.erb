@@ -1,7 +1,7 @@
 <div class="wrapper">
   <%= render "devise/shared/header" %>
 
-  <%= form_with model: @user, url: books_path, method: :GET, class: "registration-main" ,local: true do |f| %>
+  <%= form_with model: @user, url:user_session_path, class: "registration-main" ,local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 
     <%# 入力フォーム %>

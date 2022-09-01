@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(sign_up_params)
     render :new and return unless @user.valid?
 
-    # 1ページ目のユーザー情報をsessionに保持
+    # user情報をセッションに保持
     session['devise.regist_data'] = { user: @user.attributes }
     session['devise.regist_data'][:user]['password'] = params[:user][:password]
 
@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_assettable
   end
 
-  # assettableのデータをセッションに保存
+  # assettable情報をセッションに保存
   def new_assettable
     @user = User.new(session['devise.regist_data']['user'])
     

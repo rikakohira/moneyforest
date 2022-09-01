@@ -14,7 +14,7 @@
 
 /*********** フォーム ***********/
 
-/* 新規登録フォーム */
+/* 新規登録フォーム_1ページ目 */
 .form-area1 {
   width: 500px;
   height: 700px;
@@ -57,6 +57,46 @@
   height: 100px;
   padding-top: 40px;
 }
+
+/* 新規登録フォーム_2,3ページ目 */
+.form-template {
+  height: 130px;
+  padding: 20px 60px;
+}
+
+.example-content {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.example-field {
+  display: flex;
+  justify-content: space-around;
+}
+
+.example-select {
+  width: 174px;
+}
+
+.form-table {
+  padding: 0 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .form-title {

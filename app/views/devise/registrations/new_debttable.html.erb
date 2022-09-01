@@ -1,10 +1,7 @@
 <div class="wrapper">
   <%= render "devise/shared/header" %>
 
-  <%= form_with model: @debttable,class: 'registration-main', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: @debttable %>
-
-    <%# フォームエリア %>
+  <%= form_with model: @debttable, url: create_assettable_and_debttable_path, class: 'registration-main', local: true do |f| %>
     <div class="form-area1">
       <div class='form-header1'>
         <h1 class="form-title">負債</h1>
@@ -14,17 +11,36 @@
       <%# フォームエリア %>
       <div class="form-input">
         <div class="form-field" id="form-field">
-          <div id= "selectbox_0">
-          <%= f.collection_select :list_id, List.where(code: 200..299), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm"  %>
-          </div>
-          <%= f.text_field :balance, placeholder:"例) 1000" ,id: "input-balance_0"%>
-          <button id="0" onclick="deleteBtn(this)">削除</button>
+          <%= f.fields_for :debttables do |d_field| %>
+            <div class="list_field_box">
+              <%= d_field.collection_select :list_id, List.where(code: 200..299), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm"  %>
+            </div>
+            <div class="balance_field_box">
+              <%= d_field.text_field :balance, placeholder: "例) 1000"%>
+            </div>
+          <% end %>
         </div>
-          <input type="button" value="追加" id="add-btn">
       </div>
       <div class='form-bottom-text'>
-        <%= f.submit "登録" ,class: "btn btn-outline-secondary"%>
+        <%= f.submit "登録", class: "btn btn-outline-secondary", onclick: "return checkProperites()"%>
       </div>
-
+    </div>
   <% end %>
 </div>
+
+
+<script>
+  //勘定項目か残高が入力されていない場合はアラートを出す
+  const checkProperites = function() {
+    let list_fields = document.getElementsByClassName("list_field_box")
+    let balance_fields = document.getElementsByClassName("balance_field_box")
+    for(i=0; i < list_fields.length; i++) {
+      target_list_field = list_fields[i]
+      target_balance_field = balance_fields[i]
+      if ((target_list_field.childNodes[1].options.selectedIndex == 0 && target_balance_field.childNodes[1].value) || (target_list_field.childNodes[1].options.selectedIndex >= 1 && target_balance_field.childNodes[1].value == "")) {
+        alert(`${i+1}行の負債のカテゴリーか負債状況が入力されていません。`)
+        return false
+      }
+    }
+  }
+</script>

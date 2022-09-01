@@ -1,115 +1,56 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   def new
     @user = User.new
   end
 
- 
   def create
     @user = User.new(sign_up_params)
     render :new and return unless @user.valid?
-    #1ページ目のユーザー情報をsessionに保持
+
+    # 1ページ目のユーザー情報をsessionに保持
     session['devise.regist_data'] = { user: @user.attributes }
     session['devise.regist_data'][:user]['password'] = params[:user][:password]
-    
-    #ここでForm::AssetCollectionを生成することはできない？
-    @assettable = @user.build_assettable
+
+    @assettable = Form::AssetCollection.new
     render :new_assettable
   end
 
-
-  def create_assettable
-    #binding.pry
+  # assettableのデータをセッションに保存
+  def new_assettable
     @user = User.new(session['devise.regist_data']['user'])
-    #3つのインスタンスを生成できてる
-    @assettable = Form::AssetCollection.new(asset_collection_params)
-    render :new_assettable and return unless @assettable.valid?
-
-    #2ページ目のユーザー情報をsessionに保持
-    session['devise.regist_data']['assettable'] = { assettable: @assettable.attributes }
-    @debttable = @user.build_debttable
+    
+    session['devise.regist_data']['assettable'] = { assettable: assettables_params }
+    @debttable = Form::DebttableCollection.new()
     render :new_debttable
   end
 
-  #1〜3ページの情報を保存
-  def create_debttable
-    @user = User.new(session['devise.regist_data']['user'])
-    @assettable = Assettable.new(session['devise.regist_data']['assettable']['assettable'])
-    @user.build_assettable(@assettable.attributes)
-    @user.save
-    @debttable = Debttable.new(debttable_params)
-    render :new_debttable and return unless @debttable.valid?
+  # 保存処理を走らせる
+  def create_assettable_and_debttable
+    user = User.new(session['devise.regist_data']['user'])
+    session_assettable = session['devise.regist_data']['assettable']
+    session_assettable = session_assettable["assettable"]
 
-    @user.build_debttable(@debttable.attributes)
-    @user.save
+    user.save
+    assettables = Form::AssetCollection.new(user, session_assettable)
+    debttables = Form::DebttableCollection.new(user, debttables_params)
 
+    # Form::AssetCollectionのsaveメソッドを呼び出す（assettables_attributesで値を格納したオブジェクトをDBに保存する）
+    assettables.save
+    # Form::DebttableCollectionのsaveメソッドを呼び出す（assettables_attributesで値を格納したオブジェクトをDBに保存する）
+    debttables.save
     session['devise.regist_data'].clear
-    sign_in(:user, @user)
+    sign_in user
+
+    redirect_to books_path
   end
 
   private
 
-  #def assettable_params
-    #params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, assettable: [:balance, :list_id])
-  #end
-
-  def debttable_params
-    params.permit(:selectbox_1, :selectbox_2, :selectbox_3, :selectbox_4, :selectbox_5, debttable: [:balance, :list_id])
+  def assettables_params
+    params.require(:form_asset_collection).permit(assettables_attributes: [:list_id, :balance])
   end
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def debttables_params
+    params.require(:form_debttable_collection).permit(debttables_attributes: [:list_id, :balance])
+  end
 end

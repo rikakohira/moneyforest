@@ -3,4 +3,6 @@ class List < ApplicationRecord
 
   has_many :assettables
   has_many :debttables
+  has_many :debits
+  has_many :credits
 end

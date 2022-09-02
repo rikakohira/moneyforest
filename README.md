@@ -85,6 +85,40 @@ Moneyforest
 
 - has_many :assettables
 - has_many :debttables
+- has_many :debits
+- has_many :credits
+
+
+# debitsテーブル
+
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| date | date | null: false |
+| debit_amount | integer | null: false | 
+| list | references | null: false, foreign_key: true | 
+
+
+
+### Association
+
+- has_one :credit
+- belongs_to :list
+
+
+# creditsテーブル
+
+| Column                | Type         | Options                   |
+| --------------------- | ------------ | ------------------------- |
+| debit_amount | integer | null: false | 
+| list | references | null: false, foreign_key: true | 
+| debit | references | null: false, foreign_key: true | 
+
+
+
+### Association
+
+- belongs_to :debit
+- belongs_to :list
 
 
 

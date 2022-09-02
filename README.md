@@ -109,7 +109,7 @@ Moneyforest
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
-| debit_amount | integer | null: false | 
+| credit_amount | integer | null: false | 
 | list | references | null: false, foreign_key: true | 
 | debit | references | null: false, foreign_key: true | 
 

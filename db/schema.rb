@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_31_150842) do
+ActiveRecord::Schema.define(version: 2022_09_02_111752) do
 
   create_table "assettables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "balance", null: false
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 2022_08_31_150842) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["list_id"], name: "index_assettables_on_list_id"
     t.index ["user_id"], name: "index_assettables_on_user_id"
+  end
+
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "credit_amount", null: false
+    t.bigint "list_id", null: false
+    t.bigint "debit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["debit_id"], name: "index_credits_on_debit_id"
+    t.index ["list_id"], name: "index_credits_on_list_id"
+  end
+
+  create_table "debits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "debit_amount", null: false
+    t.bigint "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_debits_on_list_id"
   end
 
   create_table "debttables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,6 +77,9 @@ ActiveRecord::Schema.define(version: 2022_08_31_150842) do
 
   add_foreign_key "assettables", "lists"
   add_foreign_key "assettables", "users"
+  add_foreign_key "credits", "debits"
+  add_foreign_key "credits", "lists"
+  add_foreign_key "debits", "lists"
   add_foreign_key "debttables", "lists"
   add_foreign_key "debttables", "users"
 end

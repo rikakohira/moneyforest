@@ -1,14 +1,15 @@
 <div class="wrapper">
   <%= render "devise/shared/header" %>
 
-    <div class="registration-main">
-      <div class="form-area2">
-        <div class='form-header2'>
-          <h1 class="form-title">アカウント作成完了</h1>
-          <p class="form-content">アカウントの作成が完了しました。</p>
-        </div>
-        <div class='form-bottom-text'>
-          <%= link_to "ログイン", books_path, class: "btn btn-outline-secondary"%>
-        </div>
+  <%# 新規登録完了画面 %>
+  <div class="registration-main">
+    <div class="form-area2">
+      <div class='form-header2'>
+        <h1 class="form-title">アカウント作成完了</h1>
+        <p class="form-content">アカウントの作成が完了しました。</p>
+      </div>
+      <div class='form-bottom-text'>
+        <%= link_to "ログイン", books_path, class: "btn btn-outline-secondary"%>
       </div>
     </div>
+  </div>

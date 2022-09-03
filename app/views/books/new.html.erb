@@ -1,0 +1,7 @@
+<%= form_with model: @dedit_credit, local: true do |f|%>
+  <%= f.collection_select :d_list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+  <%= f.text_field :debit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
+  <%= f.collection_select :c_list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+  <%= f.text_field :credit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
+  <%= f.submit  "（仮）記帳する", class: "btn btn-outline-secondary" %>
+<% end %>

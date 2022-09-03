@@ -3,8 +3,10 @@ class CreateDebits < ActiveRecord::Migration[6.0]
     create_table :debits do |t|
       t.date :date, null: false
       t.integer :debit_amount, null: false
-      t.references :list, null: false, foreign_key: true
+      t.bigint :d_list_id, index: true
       t.timestamps
     end
+    # 外部キーのカラム名を変更
+    add_foreign_key :debits, :lists, column: :d_list_id
   end
 end

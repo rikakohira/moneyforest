@@ -7,7 +7,6 @@ class Form::AssetCollection
 
   # 作成したい登録フォームの数を指定
   FORM_COUNT = 6
-  # クラス外部からproductsへのアクセスが可能
   attr_accessor :users, :assettables, :list_id, :balance, :assettables_attributes, :form_assettable_collection
 
   # ハッシュにデータを格納
@@ -18,14 +17,12 @@ class Form::AssetCollection
   end
 
   def assettables_attributes=(attributes)
-    # これで与えられたparamsの値をAssettableのオブジェクトに格納したい
+    # paramsの値をAssettableのオブジェクトに格納
     self.assettables = attributes.map { |_, v| Assettable.new(v) }
-    # {balance=>100, list_id=>1}
   end
 
   def save
-    # transactionでデータベース内の情報の整合性を保つ
-    ## balanceとlist_idが存在すれば保存対象の配列に入れる
+    # balanceとlist_idが存在すれば保存対象の配列に入れる
     assettables =
       self.assettables.map do |assettable|
         if assettable.balance.present? && assettable.list_id.present?

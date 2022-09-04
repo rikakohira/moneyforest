@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'top#index'
-  resources :books, only:[:index, :new, :create]
+  resources :books do
+    collection do 
+      get 'search'
+    end
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'

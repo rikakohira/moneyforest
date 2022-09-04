@@ -17,25 +17,16 @@
   <% end %>
 
 
-  <h4>(仮)一覧表示</h4>
+  <%#h4>(仮)一覧表示</h4>
   <% @debits.each do |debit| %>  
-    <div>
-      <%= debit.date %>
+    <%#div>
       <%= debit.list.code_name %>
-      <%= debit.debit_amount %>
-      <%= debit.credit.list.code_name %>
-      <%= debit.credit.credit_amount %>
-      <%= debit.memo %>
-    </div>
+      <%#= debit.debit_amount %>
+      <%#= debit.credit.list.code_name %>
+      <%#= debit.credit.credit_amount %>
+      <%#= debit.memo %>
+    <%#/div>
   <% end %>
 
-
-
-
-
-
 </div>
-
-
-
 </div>

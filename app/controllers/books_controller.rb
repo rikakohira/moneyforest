@@ -11,7 +11,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    #binding.pry
     @debit_credit = DebitCredit.new(debit_credit_params)
     if @debit_credit.valid?
       @debit_credit.save
@@ -34,5 +33,4 @@ class BooksController < ApplicationController
   def set_q
     @q = Debit.ransack(params[:q])
   end
-
 end

@@ -1,32 +1,46 @@
 <div class="wrapper">
   <%= render "shared/header" %>
 
-<div class="mein">
+  <div class="mein">
 
-  <%# 仕分登録フォーム %>
-  <%= link_to '新しい仕分を作成', new_book_path, class:"btn btn-outline-secondary" %>
+    <%# 仕分登録フォーム %>
+    <div class="books-new">
+      <%= link_to '新しい仕分を作成', new_book_path, class:"btn btn-outline-secondary" %>
+    </div>
 
-  <%# 月別検索フォーム %>
-  <%= search_form_for @q, url: search_books_path do |f| %>
-  <%= raw sprintf(f.date_select(
-                              :date_during_month,
-                              use_month_numbers: true, 
-                              date_separator: '%s', 
-                              discard_day: true),'年 ') + '月' %>
-  <%= f.submit "表示", class:"btn btn-outline-secondary btn-sm" %>
-  <% end %>
+    <%# 月度検索フォーム %>
+    <div class="books-search">
+      <div class="books-search-form">
+        <%= search_form_for @q, url: search_books_path do |f| %>
+        <%= raw sprintf(f.date_select(
+                                :date_during_month,
+                                use_month_numbers: true, 
+                                date_separator: '%s', 
+                                discard_day: true),'年 ') + '月' %>
+        <%= f.submit "表示", id:"seach-btn", class:"btn btn-outline-secondary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
 
-
-  <%#h4>(仮)一覧表示</h4>
-  <% @debits.each do |debit| %>  
-    <%#div>
-      <%= debit.list.code_name %>
-      <%#= debit.debit_amount %>
-      <%#= debit.credit.list.code_name %>
-      <%#= debit.credit.credit_amount %>
-      <%#= debit.memo %>
-    <%#/div>
-  <% end %>
-
+  </div>
 </div>
-</div>
+
+<%#script>
+  function serch (){
+    //検索ボタンクリック時にイベント発火
+    const submit = document.getElementById("seach-btn");
+    submit.addEventListener("click", () => {
+      //セレクトボックスの内容を取得
+      const selectbox = document.getElementById("debit_search");
+      const selectboxDate = new selectboxDate(selectbox);
+      //非同期通信を行うため
+      const XHR = new XMLHttpRequest();
+      XHR.open("POST", "/posts", true);  
+	});
+    
+};
+
+//formData.append("キー", "値") サーバーにデータを送信する際に使用する?
+
+window.addEventListener('load', serch);
+</script>

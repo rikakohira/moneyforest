@@ -1,15 +1,51 @@
-<%= form_with model: @debit_credit, url: books_path,local: true do |f|%>
-  <%= raw sprintf(f.date_select(
-                              :date, 
-                              use_month_numbers: true, 
-                              date_separator: '%s', 
-                              discard_day: true),'年 ') + '月' %>
-  <%# 資産,負債,費用から選択 %>                            
-  <%= f.collection_select :d_list_id, List.where(code: 100..299).or(List.where(code: 500..599)), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
-  <%= f.text_field :debit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
-  <%# 資産,負債,収入から選択 %>
-  <%= f.collection_select :c_list_id, List.where(code: 100..299).or(List.where(code: 400..499)), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
-  <%= f.text_field :credit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
-  <%= f.text_area :memo %>
-  <%= f.submit  "（仮）記帳する", class: "btn btn-outline-secondary" %>
-<% end %>
+<div class="wrapper">
+  <%= render "shared/header" %>
+
+  <div class="book-mein">
+
+    <%# 仕分登録フォーム %>
+    <div class="books-form-area">
+      <%= form_with model: @debit_credit, url: books_path,local: true do |f|%>
+      <div class="date-select">
+        <%= raw sprintf(f.date_select(
+                                :date, 
+                                use_month_numbers: true, 
+                                date_separator: '%s', 
+                                discard_day: true),'年 ') + '月' %>
+      </div>
+      <table class="table">
+        <thead align="center">
+          <tr>
+            <th>借方</th>
+            <th>貸方</th>
+          </tr>
+        </thead>
+      </table>
+      <div class="books-form-field">
+        <div class="debit-credit">
+          <div class="books-form-select">
+            <%# 資産,負債,費用から選択 %>
+            <%= f.collection_select :d_list_id, List.where(code: 100..299).or(List.where(code: 500..599)), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+          </div>
+          <div class="books-form-amount">
+            <%= f.text_field :debit_amount, placeholder:"¥", class: 'form-control form-control-sm col'%>
+          </div>
+        </div>
+        <div class="debit-credit">
+          <div class="books-form-select">
+            <%# 資産,負債,収入から選択 %>
+            <%= f.collection_select :c_list_id, List.where(code: 100..299).or(List.where(code: 400..499)), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+          </div>
+          <div class="books-form-amount">
+            <%= f.text_field :credit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
+          </div>
+        </div>
+      </div>
+
+      <%= f.text_area :memo %>
+      <%= f.submit  "（仮）記帳する", class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

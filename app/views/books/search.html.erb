@@ -1,0 +1,29 @@
+<h1>（仮）検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>借方</th>
+      <th>¥</th>
+      <th>借方</th>
+      <th>¥</th>
+      <th>memo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |debit| %>
+      <tr>
+        <td><%= debit.list.code_name %></td>
+        <td><%= debit.debit_amount %></td>
+        <td><%= debit.credit.list.code_name %></td>
+        <td><%= debit.credit.credit_amount %></td>
+        <td><%= debit.memo %></td>
+        <%#td><%= link_to 'Show', user %><%#/td>
+        <td><%= link_to 'Edit', edit_user_path(user) %><%#/td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }</td> %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '（仮）Top', books_path %>

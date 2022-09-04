@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_09_03_071542) do
   create_table "debits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.integer "debit_amount", null: false
+    t.text "memo"
     t.bigint "d_list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

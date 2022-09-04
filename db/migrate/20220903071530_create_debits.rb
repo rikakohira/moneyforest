@@ -3,6 +3,7 @@ class CreateDebits < ActiveRecord::Migration[6.0]
     create_table :debits do |t|
       t.date :date, null: false
       t.integer :debit_amount, null: false
+      t.text :memo
       t.bigint :d_list_id, index: true
       t.timestamps
     end

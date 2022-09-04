@@ -1,4 +1,6 @@
-<%= form_with model: @dedit_credit, local: true do |f|%>
+<%= form_with model: @debit_credit, url: books_path,local: true do |f|%>
+  <%# f.date_select(メソッド名, オプション={}, HTML属性={} or イベント属性={}) %>
+  <%= raw sprintf(f.date_select(:date, use_month_numbers: true, date_separator: '%s', discard_day: true),'年 ') + '月' %>
   <%= f.collection_select :d_list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
   <%= f.text_field :debit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
   <%= f.collection_select :c_list_id, List.where(code: 100..199), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>

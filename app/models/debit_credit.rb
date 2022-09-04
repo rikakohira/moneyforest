@@ -1,5 +1,6 @@
 class DebitCredit
 	include ActiveModel::Model
+  include ActiveRecord::AttributeAssignment
   attr_accessor :date, :debit_amount, :d_list_id, :credit_amount, :c_list_id
   
   with_options presence: true do

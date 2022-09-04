@@ -10,9 +10,9 @@ class BooksController < ApplicationController
 
   def create
     @debit_credit = DebitCredit.new(debit_credit_params)
-    if @debit_amount.valid?
+    if @debit_credit.valid?
       @debit_credit.save
-      redirect_to books_path
+      redirect_to books_path   
     else
       render :new
     end

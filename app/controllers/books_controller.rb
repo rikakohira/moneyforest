@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_q, only: [:index, :search]
 
   def index
     @debits = Debit.includes(:list)
@@ -20,9 +21,18 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def debit_credit_params
     params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount, :c_list_id)
   end
+
+  def set_q
+    @q = Debit.ransack(params[:q])
+  end
+
 end

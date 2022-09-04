@@ -3,8 +3,21 @@
 
 <div class="mein">
 
+  <%# 仕分登録フォーム %>
   <%= link_to '新しい仕分を作成', new_book_path, class:"btn btn-outline-success" %>
-  
+
+  <%# 月別検索フォーム %>
+  <%= search_form_for @q, url: search_books_path do |f| %>
+  <%= raw sprintf(f.date_select(
+                              :date_during_month,
+                              use_month_numbers: true, 
+                              date_separator: '%s', 
+                              discard_day: true),'年 ') + '月' %>
+  <%= f.submit "検索" %>
+  <% end %>
+
+
+  <h1>(仮)一覧表示</h1>
   <% @debits.each do |debit| %>  
     <div>
       <%= debit.list.code_name %>

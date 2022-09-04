@@ -2,7 +2,24 @@
   <%= render "shared/header" %>
 
 <div class="mein">
-  <%= link_to '（仮）新規投稿', new_book_path %>
+
+  <%= link_to '新しい仕分を作成', new_book_path, class:"btn btn-outline-success" %>
+  
+  <% @debits.each do |debit| %>  
+    <div>
+      <%= debit.list.code_name %>
+      <%= debit.debit_amount %>
+      <%= debit.credit.list.code_name %>
+      <%= debit.credit.credit_amount %>
+      <%= debit.memo %>
+    </div>
+  <% end %>
+
+
+
+
+
+
 </div>
 
 

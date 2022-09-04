@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @debits = Debit.includes(:list)
   end
 
   def new
@@ -9,10 +10,11 @@ class BooksController < ApplicationController
   end
 
   def create
+    #binding.pry
     @debit_credit = DebitCredit.new(debit_credit_params)
     if @debit_credit.valid?
       @debit_credit.save
-      redirect_to books_path   
+      redirect_to books_path
     else
       render :new
     end
@@ -21,9 +23,6 @@ class BooksController < ApplicationController
   private
 
   def debit_credit_params
-    params.require(:debit_credit).permit(:date, :debit_amount, :d_list_id, :credit_amount, :c_list_id)
+    params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount, :c_list_id)
   end
-
-
 end
-

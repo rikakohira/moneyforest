@@ -1,0 +1,90 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.book-mein {
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: rgba(215, 218, 202, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/****** 仕分登録フォーム ******/
+.books-new {
+  height: 150px;
+  line-height: 150px;
+  padding-left: 50px;
+}
+
+.books-form-area {
+  width: 800px;
+  height: 560px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+  padding: 40px;
+}
+
+.date-select {
+  height: 100px;
+  line-height: 100px;
+}
+
+.books-form-field {
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.debit-credit {
+  display: flex;
+  width: 360px;
+  padding-left: 20px;
+}
+
+.books-form-select {
+  margin-right: 20px;
+}
+
+.books-form-amount {
+  width: 150px;
+}
+
+.books-memo {
+  height: 170px;
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 40px;
+
+}
+
+.memo-label {
+  text-align: center;
+  font-family: 'Gotu';
+}
+
+.memo-area {
+  resize: none;
+  height: 100px;
+
+}
+
+.books-btn-area {
+  width: 180px;
+  margin: 0 auto;
+  padding-top: 27px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/****** 月度検索フォーム ******/
+.books-search-form {
+  height: 60px;
+  padding-left: 50px;
+}

@@ -41,9 +41,18 @@
           </div>
         </div>
       </div>
-
-      <%= f.text_area :memo %>
-      <%= f.submit  "（仮）記帳する", class: "btn btn-outline-secondary" %>
+      <div class="books-memo">
+        <div class="memo-label">memo</div>
+        <%= f.text_area :memo, class: "memo-area form-control"%>
+      </div>
+      <div class="books-btn-area">
+        <div class="books-btn">
+          <%= link_to '戻る', books_path, class:"btn btn-outline-secondary" %>
+        </div>
+        <div class="books-btn">
+          <%= f.submit  "記帳する", class: "btn btn-outline-secondary" %>
+        </div>
+      </div>
       <% end %>
     </div>
 

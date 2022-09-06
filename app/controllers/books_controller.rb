@@ -21,7 +21,6 @@ class BooksController < ApplicationController
   end
 
   def search
-    # 検索処理のコード
     @results = @q.result
     
     # リクエスト形式によって処理を切り分ける

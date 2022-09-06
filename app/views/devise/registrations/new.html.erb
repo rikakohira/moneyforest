@@ -1,16 +1,14 @@
 <div class="wrapper">
   <%= render "devise/shared/header" %>
   <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
   
   <%# フォームヘッダー %>
   <div class="form-area1">
     <div class='form-header1'>
-      <h1 class="form-title">アカウント作成
-      </h1>
-      <p class="form-content">新しく作成するアカウントの情報を入力してください。
-      </p>
+      <h1 class="form-title">アカウント作成</h1>
+      <p class="form-content">新しく作成するアカウントの情報を入力してください。</p>
     </div>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 入力フォーム %>
     <div class="form-group">

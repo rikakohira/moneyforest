@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'top#index'
   resources :books do
     collection do 
-      get 'search'
+      get 'search', defaults: { format: :json }
     end
   end
 

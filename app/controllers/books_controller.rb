@@ -21,8 +21,14 @@ class BooksController < ApplicationController
   end
 
   def search
+    # 検索処理のコード
     @results = @q.result
-    render json: @results
+    
+    # リクエスト形式によって処理を切り分ける
+    respond_to do |format|
+      format.html { redirect_to :root_path }
+      format.json { render json: @results }
+    end
   end
 
   private

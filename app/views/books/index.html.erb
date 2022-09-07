@@ -11,7 +11,7 @@
     <%# 月度検索フォーム %>
     <div class="books-search">
       <div class="books-search-form">
-        <%= search_form_for @q, url: search_books_path do |f| %>
+        <%= search_form_for @q, url: books_searches_path do |f| %>
         <%= raw sprintf(f.date_select(
                                 :date_during_month,
                                 use_month_numbers: true, 
@@ -33,8 +33,13 @@
       <th>memo</th>
     </tr>
   </thead>
+
+  
   <tbody class="debit-lists">
+  <!-- collectionオプションに指定した変数の要素の分だけ部分テンプレートを呼び出し-->
+  <%#= render partial: 'book', collection: @results  %>
   </tbody>
+
 </table>
 
 

@@ -36,8 +36,8 @@
 
   
   <tbody class="debit-lists">
-  <!-- collectionオプションに指定した変数の要素の分だけ部分テンプレートを呼び出し-->
-  <%#= render partial: 'book', collection: @results  %>
+  <!-- 部分テンプレートを呼び出し-->
+  <%= render 'result', @results %>
   </tbody>
 
 </table>

@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_q, only: [:index, :search]
+  
 
   def index
     @debits = Debit.includes(:list)
@@ -17,16 +18,6 @@ class BooksController < ApplicationController
       redirect_to books_path
     else
       render :new
-    end
-  end
-
-  def search
-    @results = @q.result
-    
-    # リクエスト形式によって処理を切り分ける
-    respond_to do |format|
-      format.html { redirect_to :root_path }
-      format.json { render json: @results }
     end
   end
 

@@ -5,7 +5,7 @@ $(function () {
 
     $.ajax({
       type: 'GET',
-      url: '/books/search', // リクエストを送信するURL
+      url: '/books/searches', // リクエストを送信するURLを変更
       data: {date_during_month: selectYear, date_during_month: selectMonth},
       dataType: 'json' 
     })

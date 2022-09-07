@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root to: 'top#index'
-  resources :books do
-    collection do 
-      get 'search', defaults: { format: :json }
-    end
+
+  namespace :books do 
+    resources :searches, only: :index, defaults: { format: :json }
   end
+
+  resources :books 
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'

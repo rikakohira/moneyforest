@@ -14,33 +14,35 @@
         <%= search_form_for @q, url: books_searches_path do |f| %>
         <%= raw sprintf(f.date_select(
                                 :date_during_month,
+                                with_css_classes: true,
+                                class: "form-select",
                                 use_month_numbers: true, 
                                 date_separator: '%s', 
-                                discard_day: true),'年 ') + '月' %>
+                                discard_day: true,
+                                ),'年 ') + '月' %>
         <% end %>
       </div>
     </div>
 
-    <h1>（仮）検索結果</h1>
-    <table>
+  <div class="books-table">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>借方</th>
-          <th>¥</th>
-          <th>借方</th>
-          <th>¥</th>
-          <th>memo</th>
+          <th class="books-tr">借方</th>
+          <th></th>
+          <th class="books-tr">借方</th>
+          <th></th>
+          <th class="books-tr">memo</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
-
-
       <tbody class="js-debit-lists">
         <!-- 部分テンプレートを呼び出し-->
         <%= render partial: 'book', locals: { book: @books } %>
       </tbody>
-
     </table>
-
+  </div>
 
   </div>
 </div>

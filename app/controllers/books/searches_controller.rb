@@ -2,8 +2,8 @@ class Books::SearchesController < ApplicationController
   
   def index
     date = params[:selectYear] + "-0" + params[:selectMonth] + "-01"
-    @books = Debit.where(date: date).includes(:list)
-
+    @books = Debit.includes(:list, :credit).where(date: date)
+    # binding.pry
 
     # リクエスト形式によって処理を切り分ける
     respond_to do |format|
@@ -13,3 +13,4 @@ class Books::SearchesController < ApplicationController
   end
   
 end
+

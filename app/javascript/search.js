@@ -5,24 +5,22 @@ $(function () {
 
     $.ajax({
       type: 'GET',
-      url: '/books/searches', // リクエストを送信するURLを変更
-      data: {date_during_month: selectYear, date_during_month: selectMonth},
+      url: '/books/searches', 
+      data: {selectYear: selectYear, selectMonth: selectMonth},
       dataType: 'json' 
-    }).done(function(data){ 
-      $(data).each(function (i, debit) {
+    })
+    .done(function (data) {
+      $('.js-debit-lists tr').remove(); 
+      $(data).each(function(index,debit) {
         $('.js-debit-lists').append(
           `<tr>
-          <td>${debit.list.code_name}</td>
+          <td>${debit.list}</td>
           <td>${debit.debit_amount}</td>
-          <td>${debit.credit.list.code_name}</td>
-          <td>${debit.credit.credit_amount}</td>
-          <td>${debit.memo}</td>
-          <td><%= link_to '修正', edit_book_path(debit) %></td>
-          <td><%= link_to '削除', book_path(debit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>`
+          <td><a href="#">修正</a></td>
+          <td>><a href="#">削除</a></td>
+          <tr>`
         );
       });
     })
-
-  })
-})
+  });
+});

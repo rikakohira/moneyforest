@@ -1,25 +1,24 @@
-# Moneyforest
+# Money　Forest
 
 **コンセプト** <br>
 「家計簿を卒業のための家計管理システム」
 
-ただ日々の収支を記録するのではなく、「家計の健康状態を確認・将来必要な資産の形成」を目的として開発しました。
+ただ日々の収支を記録するのではなく、「家計の健康状態の確認・将来必要な資産の形成」を目的として開発しました。
 複式簿記を用いることにより、家計の財務状況を一目で確認することができます。
 
 [![Image from Gyazo](https://i.gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3.jpg)](https://gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3)
 
 
-# アプリケーションのURL
-
-画面右上から新規登録を行うことができます。
+# URL
 
 https://moneyforest.herokuapp.com/
+画面右上から新規登録を行うことができます。
 
 
 # 使用技術
 
 - HTML,CSS
-- ruby 2.6.5
+- Ruby 2.6.5
 - Ruby on Rails 6.0.0
 - MySQL 14.14
 - JavaScript
@@ -36,7 +35,7 @@ https://moneyforest.herokuapp.com/
 	- 仕分登録機能
 	- 月度別仕分検索機能(Ajax)
 
-- 以下、現在開発中の機能
+- 現在開発中の機能
 	- 集計機能
 
 # テスト
@@ -51,7 +50,7 @@ https://moneyforest.herokuapp.com/
 
 # テーブル設計
 
-# usersテーブル
+## usersテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
@@ -116,7 +115,7 @@ https://moneyforest.herokuapp.com/
 - has_many :credits
 
 
-# debitsテーブル
+## debitsテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
@@ -133,7 +132,7 @@ https://moneyforest.herokuapp.com/
 - belongs_to :list
 
 
-# creditsテーブル
+## creditsテーブル
 
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |

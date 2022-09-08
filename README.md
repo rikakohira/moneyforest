@@ -1,37 +1,53 @@
-## Moneyforest
+# Moneyforest
 
-家計簿を卒業のための家計管理システムです。
+コンセプト
+「家計簿を卒業のための家計管理システム」
+
 ただ日々の収支を記録するのではなく、「家計の健康状態を確認・将来必要な資産の形成」を目的として開発しました。
+複式簿記を用いることにより、家計の財務状況を一目で確認することができます。
 
-## 使用技術
+[![Image from Gyazo](https://i.gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3.jpg)](https://gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3)
+
+
+# アプリケーションのURL
+
+画面右上から新規登録を行うことができます。
+
+https://moneyforest.herokuapp.com/
+
+
+# 使用技術
 
 - HTML,CSS
 - ruby 2.6.5
 - Ruby on Rails 6.0.0
 - MySQL 14.14
+- JavaScript
+	- jQuery
 - heroku
 - RSpec
 
-## テスト
+# 機能一覧
+
+- ユーザー管理機能(devise)
+	- 新規登録機能(JavaScript)
+	- ログイン機能
+- 帳簿機能
+	- 仕分登録機能
+	- 月度別仕分検索機能(Ajax)
+
+- 以下、現在開発中の機能
+	- 集計機能
+
+# テスト
 
 - RSpec
   - 単体テスト(model)
 
-## アプリケーションのURL
-- 
-
-## テスト用アカウント
-- 
-
-# 利用方法
-
-# アプリケーションを作成した背景
-
-# 工夫した点
-
-# 要件定義
 
 # データベース設計
+
+[![Image from Gyazo](https://i.gyazo.com/cb794d3b487d4c4a0f93168ee6cba78f.png)](https://gyazo.com/cb794d3b487d4c4a0f93168ee6cba78f)
 
 # テーブル設計
 
@@ -133,29 +149,3 @@
 - belongs_to :list
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-# 面遷移図
-
-# 開発環境
-
-- フロントエンド
-	- HTML, CSS
-- バックエンド
-	- Ruby on Rails(Ruby), Javascript
-- データベース
-	- MySQL
-- タスク管理
-	- Github
-
-# ローカルでの動作方法

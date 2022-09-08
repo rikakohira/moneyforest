@@ -4,7 +4,11 @@ class BooksController < ApplicationController
   
 
   def index
-    @debits = Debit.includes(:list)
+    # 今月のデータを取得
+    @books = Debit.where(date: Time.now.all_month)
+    #@debits = Debit.includes(:list)
+    #@q = Debit.ransack(params[:q])
+    #@results = @q.result
   end
 
   def new

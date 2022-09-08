@@ -1,4 +1,4 @@
-# Money　Forest
+# MoneyForest
 
 **コンセプト** <br>
 「家計簿を卒業のための家計管理システム」

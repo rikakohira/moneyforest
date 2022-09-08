@@ -11,13 +11,17 @@ $(function () {
     })
     .done(function (data) {
       $('.js-debit-lists tr').remove(); 
+      
       $(data).each(function(index,debit) {
         $('.js-debit-lists').append(
           `<tr>
-          <td>${debit.list}</td>
+          <td>${debit.code_name}</td>
           <td>${debit.debit_amount}</td>
+          <td>${debit.code_name}</td>
+          <td>${debit.credit_amount}</td>
+          <td>${debit.memo}</td>
           <td><a href="#">修正</a></td>
-          <td>><a href="#">削除</a></td>
+          <td><a href="#">削除</a></td>
           <tr>`
         );
       });

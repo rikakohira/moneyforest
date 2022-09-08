@@ -14,7 +14,6 @@
         <%= search_form_for @q, url: books_searches_path do |f| %>
         <%= raw sprintf(f.date_select(
                                 :date_during_month,
-                                with_css_classes: true,
                                 class: "form-select",
                                 use_month_numbers: true, 
                                 date_separator: '%s', 

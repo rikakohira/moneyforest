@@ -1,0 +1,11 @@
+<% @books.each do |debit| %>
+<tr>
+  <td><%= debit.list.code_name %></td>
+  <td><%= debit.debit_amount %></td>
+  <td><%= debit.credit.list.code_name %></td>
+  <td><%= debit.credit.credit_amount %></td>
+  <td><%= debit.memo %></td>
+  <td><%= link_to '修正', edit_book_path(debit) %></td>
+  <td><%= link_to '削除', book_path(debit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>

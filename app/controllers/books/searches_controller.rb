@@ -1,17 +1,15 @@
 class Books::SearchesController < ApplicationController
   
-
   def index
-    @q = Debit.ransack(params[:q])
-    # 取得したデータをオブジェクトに変更
-    @results = @q.result
+    date = params[:selectYear] + "-0" + params[:selectMonth] + "-01"
+    @books = Debit.where(date: date).includes(:list)
+
 
     # リクエスト形式によって処理を切り分ける
     respond_to do |format|
-      format.html { redirect_to :root_path }
-      format.json { render json: @results }
+      format.html { redirect_to :root }
+      format.json { render json: @books }
     end
-
   end
   
 end

@@ -17,32 +17,30 @@
                                 use_month_numbers: true, 
                                 date_separator: '%s', 
                                 discard_day: true),'年 ') + '月' %>
-        <%= f.submit "表示", id:"search-btn", class:"btn btn-outline-secondary btn-sm" %>
         <% end %>
       </div>
     </div>
 
     <h1>（仮）検索結果</h1>
-<table>
-  <thead>
-    <tr>
-      <th>借方</th>
-      <th>¥</th>
-      <th>借方</th>
-      <th>¥</th>
-      <th>memo</th>
-    </tr>
-  </thead>
+    <table>
+      <thead>
+        <tr>
+          <th>借方</th>
+          <th>¥</th>
+          <th>借方</th>
+          <th>¥</th>
+          <th>memo</th>
+        </tr>
+      </thead>
 
-  
-  <tbody class="debit-lists">
-  <!-- 部分テンプレートを呼び出し-->
-  <%= render 'result', @results %>
-  </tbody>
 
-</table>
+      <tbody class="js-debit-lists">
+        <!-- 部分テンプレートを呼び出し-->
+        <%= render partial: 'book', locals: { book: @books } %>
+      </tbody>
+
+    </table>
 
 
   </div>
 </div>
-

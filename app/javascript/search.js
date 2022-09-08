@@ -1,5 +1,5 @@
 $(function () {
-  $('#search-btn').on('click', function () {
+  $('select').on('change', function() {
     var selectYear = $('#q_date_during_month_1i').val();
     var selectMonth = $('#q_date_during_month_2i').val();
 
@@ -8,12 +8,9 @@ $(function () {
       url: '/books/searches', // リクエストを送信するURLを変更
       data: {date_during_month: selectYear, date_during_month: selectMonth},
       dataType: 'json' 
-    })
-    .done(function (data) {
-      console.log(data)
+    }).done(function(data){ 
       $(data).each(function (i, debit) {
-        
-        $('.debit-lists').append(
+        $('.js-debit-lists').append(
           `<tr>
           <td>${debit.list.code_name}</td>
           <td>${debit.debit_amount}</td>
@@ -27,5 +24,5 @@ $(function () {
       });
     })
 
-  });
-});
+  })
+})

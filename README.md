@@ -1,10 +1,21 @@
-# アプリケーション名
-Moneyforest
+## Moneyforest
 
+家計簿を卒業のための家計管理システムです。
+ただ日々の収支を記録するのではなく、「家計の健康状態を確認・将来必要な資産の形成」を目的として開発しました。
 
-# アプリケーション概要
-家計簿卒業のための家計管理アプリケーションです。
+## 使用技術
 
+- HTML,CSS
+- ruby 2.6.5
+- Ruby on Rails 6.0.0
+- MySQL 14.14
+- heroku
+- RSpec
+
+## テスト
+
+- RSpec
+  - 単体テスト(model)
 
 ## アプリケーションのURL
 - 
@@ -95,7 +106,8 @@ Moneyforest
 | --------------------- | ------------ | ------------------------- |
 | date | date | null: false |
 | debit_amount | integer | null: false | 
-| list | references | null: false, foreign_key: true | 
+| memo | text ||
+| d_list_id | bigint | null: false, index: true | 
 
 
 
@@ -110,7 +122,7 @@ Moneyforest
 | Column                | Type         | Options                   |
 | --------------------- | ------------ | ------------------------- |
 | credit_amount | integer | null: false | 
-| list | references | null: false, foreign_key: true | 
+| c_list_id | bigint | null: false, index: true | 
 | debit | references | null: false, foreign_key: true | 
 
 

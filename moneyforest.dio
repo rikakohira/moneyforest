@@ -98,7 +98,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="q282fwEJMZkLWkkRL0Ae" name="ER図">
-        <mxGraphModel dx="657" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="481" dy="306" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="eegR__vz5L14NArXy21z-0"/>
                 <mxCell id="eegR__vz5L14NArXy21z-1" parent="eegR__vz5L14NArXy21z-0"/>
@@ -248,7 +248,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="Yt50TK3ZC0SGg394hoFz-26" value="debits" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;strokeColor=#36393d;fillColor=#cdeb8b;fontColor=#000000;portConstraintRotation=0;resizeLastRow=1;" parent="eegR__vz5L14NArXy21z-1" vertex="1">
-                    <mxGeometry x="160" y="760" width="198" height="150" as="geometry"/>
+                    <mxGeometry x="160" y="760" width="198" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="Yt50TK3ZC0SGg394hoFz-27" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=#000000;fontColor=#000000;" parent="Yt50TK3ZC0SGg394hoFz-26" vertex="1">
                     <mxGeometry y="30" width="198" height="30" as="geometry"/>
@@ -289,8 +289,21 @@
                         <mxRectangle width="168" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="YVtizu-NcN1rJHXgqdn3-14" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=#000000;fontColor=#000000;" parent="Yt50TK3ZC0SGg394hoFz-26" vertex="1">
+                <mxCell id="q8mG7Pg_NjDbpUrnA5I_-3" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="Yt50TK3ZC0SGg394hoFz-26">
                     <mxGeometry y="120" width="198" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="q8mG7Pg_NjDbpUrnA5I_-4" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="q8mG7Pg_NjDbpUrnA5I_-3">
+                    <mxGeometry width="30" height="30" as="geometry">
+                        <mxRectangle width="30" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="q8mG7Pg_NjDbpUrnA5I_-5" value="memo" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="q8mG7Pg_NjDbpUrnA5I_-3">
+                    <mxGeometry x="30" width="168" height="30" as="geometry">
+                        <mxRectangle width="168" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="YVtizu-NcN1rJHXgqdn3-14" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=#000000;fontColor=#000000;" parent="Yt50TK3ZC0SGg394hoFz-26" vertex="1">
+                    <mxGeometry y="150" width="198" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="YVtizu-NcN1rJHXgqdn3-15" value="FK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;strokeColor=#000000;fontColor=#000000;" parent="YVtizu-NcN1rJHXgqdn3-14" vertex="1">
                     <mxGeometry width="30" height="30" as="geometry">

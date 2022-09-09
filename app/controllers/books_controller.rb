@@ -1,11 +1,10 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_q, only: :index
-  
 
   def index
     # 今月のデータを取得
-    @books = Debit.where(date: Time.now.all_month)
+    @books = Debit.where(user_id: current_user.id, date: Time.now.all_month)
   end
 
   def new
@@ -25,7 +24,8 @@ class BooksController < ApplicationController
   private
 
   def debit_credit_params
-    params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount, :c_list_id).merge(user_id: current_user.id)
+    params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount,
+                                         :c_list_id).merge(user_id: current_user.id)
   end
 
   def set_q

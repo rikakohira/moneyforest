@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
   root to: 'top#index'
 
-  namespace :books do 
-    resources :searches, only: :index, defaults: { format: :json }
-  end
-
-  resources :books 
-
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -15,5 +9,13 @@ Rails.application.routes.draw do
     post 'create_assettable_and_debttable', to: 'users/registrations#create_assettable_and_debttable'
     get 'users/sign_up/complete', to: 'devise/registrations#create_debttable'
   end
+
+  namespace :books do 
+    resources :searches, only: :index, defaults: { format: :json }
+  end
+
+  resources :books
+
+  resources :users, only: :show
 
 end

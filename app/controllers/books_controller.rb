@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   private
 
   def debit_credit_params
-    params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount, :c_list_id)
+    params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount, :c_list_id).merge(user_id: current_user.id)
   end
 
   def set_q

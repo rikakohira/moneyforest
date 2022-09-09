@@ -3,13 +3,7 @@
   <div class="mein">
 
     <!-- ナビ -->
-    <div class="nav-area">
-      <nav class="nav">
-        <%= link_to 'アカウント', user_path, class:"nav-link active" %>
-        <%= link_to 'アカウント編集', edit_user_path, class:"nav-link" %>
-        <%= link_to '登録情報', edit_user_path, class:"nav-link" %>
-      </nav>
-    </div>
+    <%= render "shared/mypage_nav" %>
 
     <!-- アカウント編集フォーム -->
     <%= form_with model: @user, local: true do |f| %>

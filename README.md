@@ -46,7 +46,7 @@ https://moneyforest.herokuapp.com/ <br>
 
 # データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/cb794d3b487d4c4a0f93168ee6cba78f.png)](https://gyazo.com/cb794d3b487d4c4a0f93168ee6cba78f)
+[![Image from Gyazo](https://i.gyazo.com/faaa69f65a70eab093adc000448f132b.png)](https://gyazo.com/faaa69f65a70eab093adc000448f132b)
 
 # テーブル設計
 
@@ -66,6 +66,7 @@ https://moneyforest.herokuapp.com/ <br>
 
 - has_one :assettable
 - has_one :debttable
+- has_many :debits
 
 
 ## assettablesテーブル
@@ -123,13 +124,15 @@ https://moneyforest.herokuapp.com/ <br>
 | debit_amount | integer | null: false | 
 | memo | text ||
 | d_list_id | bigint | null: false, index: true | 
-
+| user | references | null: false, foreign_key: true | 
 
 
 ### Association
 
 - has_one :credit
 - belongs_to :list
+- belongs_to :user
+
 
 
 ## creditsテーブル

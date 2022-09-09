@@ -1,20 +1,19 @@
 <div class="wrapper">
   <%= render "shared/header" %>
-
-  <div class="mein">
+    <div class="mein">
 
     <!-- ナビ -->
     <div class="nav-area">
       <nav class="nav">
-        <a class="nav-link active" aria-current="page" href="#">アカウント</a>
-        <a class="nav-link" href="#">アカウント編集</a>
-        <a class="nav-link" href="#">登録情報</a>
+        <%= link_to 'アカウント', user_path, class:"nav-link active" %>
+        <%= link_to 'アカウント編集', edit_user_path, class:"nav-link" %>
+        <%= link_to '登録情報', edit_user_path, class:"nav-link" %>
       </nav>
     </div>
 
     <!-- アカウント情報 -->
     <div class="mypage-area">
-      <div class="mypage-field">
+      <div class="mypage-field1">
         <div class='mypage-header'>
           <h1>アカウント</h1>
         </div>
@@ -36,7 +35,6 @@
             <div class="mypage-column">ライフスタイル</div>
             <div class="mypage-input"><%= @user.category.name %></div>
           </div>
-
         </div>
       </div>
 

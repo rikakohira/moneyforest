@@ -2,13 +2,15 @@
   <%= render "shared/header" %>
 
   <div class="book-mein">
-
+  
     <%# 仕分登録フォーム %>
     <div class="books-form-area">
       <%= form_with model: @debit_credit, url: books_path,local: true do |f|%>
+      
       <div class="date-select">
         <%= raw sprintf(f.date_select(
                                 :date, 
+                                class: "form-select form-select-sm",
                                 use_month_numbers: true, 
                                 date_separator: '%s', 
                                 discard_day: true),'年 ') + '月' %>

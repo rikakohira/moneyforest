@@ -4,7 +4,10 @@
   padding-top: 85px;
   border-bottom: 1px solid #DEE2E6;
 }
-
+.nav a {
+  text-decoration: none;
+  color: black;
+}
 .mypage-area {
   display: flex;
   justify-content: center;

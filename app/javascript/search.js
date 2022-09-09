@@ -1,5 +1,6 @@
 $(function () {
   $('select').on('change', function() {
+    console.log("イベント発火");
     var selectYear = $('#q_date_during_month_1i').val();
     var selectMonth = $('#q_date_during_month_2i').val();
 

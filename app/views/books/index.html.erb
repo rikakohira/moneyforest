@@ -3,12 +3,12 @@
 
   <div class="mein">
 
-    <%# 仕分登録フォーム %>
+    <!-- 仕分登録フォーム -->
     <div class="books-new">
       <%= link_to '新しい仕分を作成', new_book_path, class:"btn btn-outline-secondary" %>
     </div>
 
-    <%# 月度検索フォーム %>
+    <!-- 月度検索フォーム -->
     <div class="books-search">
       <div class="books-search-form">
         <%= search_form_for @q, url: books_searches_path do |f| %>

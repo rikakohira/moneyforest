@@ -4,3 +4,46 @@
   padding-top: 85px;
   border-bottom: 1px solid #DEE2E6;
 }
+
+.mypage-area {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+/*********** アカウント情報 ***********/
+
+.mypage-field {
+  width: 500px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+}
+
+.mypage-header {
+  height: 100px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.mypage-form {
+  height: calc(400px - 100px);
+  padding: 20px 50px;
+}
+
+.mypage-line {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.mypage-column {
+  width: 180px;
+  font-size: 15px;
+}
+
+.mypage-input {
+  font-size: 17px;
+}
+

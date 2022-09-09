@@ -3,22 +3,42 @@
 
   <div class="mein">
 
+    <!-- ナビ -->
     <div class="nav-area">
-    <nav class="nav">
-      <a class="nav-link active" aria-current="page" href="#">アカウント</a>
-      <a class="nav-link" href="#">アカウント編集</a>
-      <a class="nav-link" href="#">登録情報</a>
-    </nav>
+      <nav class="nav">
+        <a class="nav-link active" aria-current="page" href="#">アカウント</a>
+        <a class="nav-link" href="#">アカウント編集</a>
+        <a class="nav-link" href="#">登録情報</a>
+      </nav>
     </div>
 
-    <%= @user.nickname %>
-    <%= @user.email %>
-    <%= @user.age.name %>
-    <%= @user.category.name %>
+    <!-- アカウント情報 -->
+    <div class="mypage-area">
+      <div class="mypage-field">
+        <div class='mypage-header'>
+          <h1>アカウント</h1>
+        </div>
+        <div class="mypage-form">
 
+          <div class="mypage-line">
+            <div class="mypage-column">名前</div>
+            <div class="mypage-input"><%= @user.nickname %></div>
+          </div>
+          <div class="mypage-line">
+            <div class="mypage-column">メールアドレス</div>
+            <div class="mypage-input"><%= @user.email %></div>
+          </div>
+          <div class="mypage-line">
+            <div class="mypage-column">年齢</div>
+            <div class="mypage-input"><%= @user.age.name %></div>
+          </div>
+          <div class="mypage-line">
+            <div class="mypage-column">ライフスタイル</div>
+            <div class="mypage-input"><%= @user.category.name %></div>
+          </div>
 
+        </div>
+      </div>
 
-
-
+    </div>
   </div>
-</div>

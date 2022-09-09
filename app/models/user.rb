@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_one :assettable
   has_one :debttable
+  has_many :debits
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :age

@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 2022_09_03_071542) do
     t.integer "debit_amount", null: false
     t.text "memo"
     t.bigint "d_list_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["d_list_id"], name: "index_debits_on_d_list_id"
+    t.index ["user_id"], name: "index_debits_on_user_id"
   end
 
   create_table "debttables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 2022_09_03_071542) do
   add_foreign_key "credits", "debits"
   add_foreign_key "credits", "lists", column: "c_list_id"
   add_foreign_key "debits", "lists", column: "d_list_id"
+  add_foreign_key "debits", "users"
   add_foreign_key "debttables", "lists"
   add_foreign_key "debttables", "users"
 end

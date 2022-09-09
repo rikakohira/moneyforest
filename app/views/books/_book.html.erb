@@ -5,7 +5,7 @@
   <td><%= debit.credit.list.code_name %></td>
   <td><%= debit.credit.credit_amount %></td>
   <td><%= debit.memo %></td>
-  <td><%= link_to '編集', edit_book_path(debit) %></td>
-  <td><%= link_to '削除', book_path(debit), method: :delete, data: { confirm: '削除しますか?' } %></td>
+  <td><%= link_to '編集', edit_book_path(debit), class:"btn btn-outline-success btn-sm" %></td>
+  <td><%= link_to '削除', book_path(debit), method: :delete, data: { confirm: '削除しますか?' }, class:"btn btn-outline-dark btn-sm" %></td>
 </tr>
 <% end %>

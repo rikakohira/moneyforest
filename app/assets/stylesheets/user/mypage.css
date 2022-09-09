@@ -13,7 +13,7 @@
 
 /*********** アカウント情報 ***********/
 
-.mypage-field {
+.mypage-field1 {
   width: 500px;
   height: 400px;
   background: rgba(255, 255, 255, 0.7);
@@ -47,3 +47,12 @@
   font-size: 17px;
 }
 
+/*********** アカウント編集フォーム ***********/
+
+.mypage-field2 {
+  width: 500px;
+  height: 550px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+}

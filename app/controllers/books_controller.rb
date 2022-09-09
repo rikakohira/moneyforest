@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def create
     @debit_credit = DebitCredit.new(debit_credit_params)
+    # バリデーションを実行
     if @debit_credit.valid?
       @debit_credit.save
       redirect_to books_path

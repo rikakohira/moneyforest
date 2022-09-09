@@ -14,6 +14,8 @@
 https://moneyforest.herokuapp.com/ <br>
 画面右上から新規登録を行うことができます。
 
+- ユーザー名：hirata
+- パスワード：Zaq12wsx
 
 # 使用技術
 

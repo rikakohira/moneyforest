@@ -20,8 +20,8 @@ $(function () {
           <td>${debit.code_name}</td>
           <td>${debit.credit_amount}</td>
           <td>${debit.memo}</td>
-          <td><a href="#" class="btn btn-outline-success btn-sm">修正</a></td>
-          <td><a href="#" class="btn btn-outline-dark btn-sm" data-confirm="削除しますか?">削除</a></td>
+          <td><a href="/books/${debit.id}/edit" class="btn btn-outline-success btn-sm">編集</a></td>
+          <td><a href="/books/${debit.id}" class="btn btn-outline-dark btn-sm" data-confirm="削除しますか?">削除</a></td>
           <tr>`
         );
       });

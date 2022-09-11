@@ -22,6 +22,21 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = Debit.joins(:list, :credit, :user).select('credits.credit_amount', 'debits.debit_amount', 'debits.memo',
+                                                      'lists.code_name', 'users.id').find(params[:id])
+    # redirect_to books_path unless current_user.id == @book.dibit.user_id
+  end
+
+  def update
+    @book = Debit.find(params[:id])
+    if @book.update(book_params)
+      redirect_to books_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def debit_credit_params
@@ -31,5 +46,8 @@ class BooksController < ApplicationController
 
   def set_q
     @q = Debit.ransack(params[:q])
+  end
+
+  def book_params
   end
 end

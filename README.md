@@ -53,8 +53,7 @@ https://moneyforest.herokuapp.com/ <br>
 # デモ
 
 **新規登録機能** <br>
-Wizard形式を用いて、1つのページでの入力数を減らし、<br>
-入力に不備があった場合はアラートを出すなど、ユーザーが直感的に操作できる仕様にしました。
+Wizard形式を用いて、1つのページでの入力数を減らし、入力に不備があった場合はアラートを出すなど、ユーザーが直感的に操作できる仕様にしました。
 [![Image from Gyazo](https://i.gyazo.com/b6c28c6af05cae1b310c370e0b56831f.gif)](https://gyazo.com/b6c28c6af05cae1b310c370e0b56831f)
 
 **ログインユーザーのトップページ** <br>

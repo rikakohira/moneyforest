@@ -13,7 +13,6 @@
 **名前の由来** <br>
 「木を見て森を見ず」ということわざがあります。木が家計簿で、森が人生（ライフプラン）だとした時、日々収支を記録するだけの家計簿は、まさに木を見て森を見ていない状況だと思いました。「木を見て森を見通す家計簿」を作りたいと思ったことから、「Money Forest」と命名しました。
 
-- ログアウトユーザーのトップページ
 [![Image from Gyazo](https://i.gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3.jpg)](https://gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3)
 
 # URL
@@ -24,9 +23,9 @@ https://moneyforest.herokuapp.com/ <br>
 - ユーザー名：hirata
 - パスワード：Zaq12wsx
 - テスト用アカウント
- - ユーザー名：hirata
- - メールアドレス：a@test
- - パスワード：111qqq
+　- ユーザー名：hirata
+　- メールアドレス：a@test
+　- パスワード：111qqq
 
 # 使用技術
 

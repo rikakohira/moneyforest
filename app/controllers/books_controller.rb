@@ -25,8 +25,7 @@ class BooksController < ApplicationController
   def edit
     @book = Debit.joins(:list, :credit, :user).select('credits.credit_amount', 'debits.debit_amount', 'debits.memo',
                                                       'lists.code_name', 'users.id').find(params[:id])
-    # binding.pry
-                                                      # redirect_to books_path unless current_user.id == @book.dibit.user_id
+    redirect_to books_path unless current_user.id == @book.id
   end
 
   def update
@@ -36,6 +35,13 @@ class BooksController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    book = Debit.find(params[:id])
+      if book.destroy
+        redirect_to books_path
+      end
   end
 
   private

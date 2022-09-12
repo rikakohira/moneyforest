@@ -23,9 +23,9 @@ https://moneyforest.herokuapp.com/ <br>
 - ユーザー名：hirata
 - パスワード：Zaq12wsx
 - テスト用アカウント
-　- ユーザー名：hirata
-　- メールアドレス：a@test
-　- パスワード：111qqq
+	- ユーザー名：hirata
+	- メールアドレス：a@test
+	- パスワード：111qqq
 
 # 使用技術
 

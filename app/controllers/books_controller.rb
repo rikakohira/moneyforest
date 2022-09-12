@@ -25,7 +25,8 @@ class BooksController < ApplicationController
   def edit
     @book = Debit.joins(:list, :credit, :user).select('credits.credit_amount', 'debits.debit_amount', 'debits.memo',
                                                       'lists.code_name', 'users.id').find(params[:id])
-    # redirect_to books_path unless current_user.id == @book.dibit.user_id
+    # binding.pry
+                                                      # redirect_to books_path unless current_user.id == @book.dibit.user_id
   end
 
   def update
@@ -41,7 +42,7 @@ class BooksController < ApplicationController
 
   def debit_credit_params
     params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount,
-                                         :c_list_id).merge(user_id: current_user.id)
+                                        :c_list_id).merge(user_id: current_user.id)
   end
 
   def set_q

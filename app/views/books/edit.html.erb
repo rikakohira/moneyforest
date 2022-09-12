@@ -26,8 +26,9 @@
       <div class="books-form-field">
         <div class="debit-credit">
           <div class="books-form-select">
-            <%# 資産,負債,費用から選択 %>
-            <%= f.collection_select :d_list_id, List.where(code: 100..299).or(List.where(code: 500..599)), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+            <!-- 資産,負債,費用から選択 -->
+            <%= f.collection_select :d_list_id, List.where(code: 100..299).or(List.where(code: 500..599)), :id, :code_name, {}, class: "form-select form-select-sm" %>
+            
           </div>
           <div class="books-form-amount">
             <%= f.text_field :debit_amount, placeholder:"¥", class: 'form-control form-control-sm col'%>
@@ -35,8 +36,8 @@
         </div>
         <div class="debit-credit">
           <div class="books-form-select">
-            <%# 資産,負債,収入から選択 %>
-            <%= f.collection_select :c_list_id, List.where(code: 100..299).or(List.where(code: 400..499)), :id, :code_name, { prompt: "選択してください" }, class: "form-select form-select-sm" %>
+            <!-- 資産,負債,収入から選択 -->
+            <%= f.collection_select :c_list_id, List.where(code: 100..299).or(List.where(code: 400..499)), :id, :code_name, {}, class: "form-select form-select-sm" %>
           </div>
           <div class="books-form-amount">
             <%= f.text_field :credit_amount, placeholder:"¥", class: 'form-control form-control-sm'%>
@@ -52,7 +53,7 @@
           <%= link_to '戻る', books_path, class:"btn btn-outline-secondary" %>
         </div>
         <div class="books-btn">
-          <%= f.submit  "記帳する", class: "btn btn-outline-secondary" %>
+          <%= f.submit  "更新する", class: "btn btn-outline-secondary" %>
         </div>
       </div>
       <% end %>

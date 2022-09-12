@@ -59,10 +59,10 @@ Wizard形式を用いて、1つのページでの入力数を減らし、<br>
 
 **ログインユーザーのトップページ** <br>
 デフォルトで、今月の仕分帳を表示する仕様です。　<br>
-仕分登録機能は、 `新しい仕分を作成` から仕分入力フォームへ遷移します。　<br>
-月度別仕分検索機能は、ajax通信を用いて画面遷移なしで、月度別の仕訳帳を表示します。
-[![Image from Gyazo](https://i.gyazo.com/ef88b2021f676530135bcf6efebcd079.png)](https://gyazo.com/ef88b2021f676530135bcf6efebcd079)
+月度別仕分検索機能は、ajax通信を用いて画面遷移なしで、月度別の仕訳帳を表示します。<br>
+仕分登録機能は、 `新しい仕分を作成` から仕分入力フォームへ遷移します。　
 [![Image from Gyazo](https://i.gyazo.com/2313835314845bb42dbeb301a0ec0733.gif)](https://gyazo.com/2313835314845bb42dbeb301a0ec0733)
+[![Image from Gyazo](https://i.gyazo.com/ef88b2021f676530135bcf6efebcd079.png)](https://gyazo.com/ef88b2021f676530135bcf6efebcd079)
 
 # テスト
 

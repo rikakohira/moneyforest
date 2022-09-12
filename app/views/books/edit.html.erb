@@ -28,7 +28,6 @@
           <div class="books-form-select">
             <!-- 資産,負債,費用から選択 -->
             <%= f.collection_select :d_list_id, List.where(code: 100..299).or(List.where(code: 500..599)), :id, :code_name, {}, class: "form-select form-select-sm" %>
-            
           </div>
           <div class="books-form-amount">
             <%= f.text_field :debit_amount, placeholder:"¥", class: 'form-control form-control-sm col'%>

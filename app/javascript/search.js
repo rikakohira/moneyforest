@@ -21,7 +21,7 @@ $(function () {
           <td>${debit.credit_amount}</td>
           <td>${debit.memo}</td>
           <td><a href="/books/${debit.id}/edit" class="btn btn-outline-success btn-sm">編集</a></td>
-          <td><a href="/books/${debit.id}" class="btn btn-outline-dark btn-sm" data-confirm="削除しますか?">削除</a></td>
+          <td><a data-confirm="削除しますか?" href="/books/${debit.id}" class="btn btn-outline-dark btn-sm" rel="nofollow" data-method="delete">削除</a></td>
           <tr>`
         );
       });

@@ -9,8 +9,12 @@
 **名前の由来** <br>
 「木を見て森を見ず」ということわざがあります。木が家計簿で、森が人生（ライフプラン）だとした時、日々収支を記録するだけの家計簿は、まさに木を見て森を見ていない状況だと思いました。「木を見て森を見通す家計簿」を作りたいと思ったことから、「Money Forest」と命名しました。
 
-[![Image from Gyazo](https://i.gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3.jpg)](https://gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3)
+**開発の経緯** <br>
+ペルソナは同世代の会社員に設定しています。<br>
+将来のため、資産形成や投資信託などに興味があるが、そもそも現状の資産額と負債額が把握できていない、いつまでにどの程度お金を準備したらいいかわからない、毎日家計簿に記録するのは大変、といった課題を解決を解決したく、アプリケーションの開発に至りました。
 
+- ログアウトユーザーのトップページ
+[![Image from Gyazo](https://i.gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3.jpg)](https://gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3)
 
 # URL
 
@@ -19,6 +23,10 @@ https://moneyforest.herokuapp.com/ <br>
 
 - ユーザー名：hirata
 - パスワード：Zaq12wsx
+- テスト用アカウント
+ - ユーザー名：hirata
+ - メールアドレス：a@test
+ - パスワード：111qqq
 
 # 使用技術
 
@@ -43,11 +51,24 @@ https://moneyforest.herokuapp.com/ <br>
 - 現在開発中の機能
 	- 集計機能
 
+# デモ
+
+- 新規登録機能
+Wizard形式を用いて、1つのページでの入力数を減らし、<br>
+入力に不備があった場合はアラートを出すなど、ユーザーが直感的に操作できる仕様にしました。
+[![Image from Gyazo](https://i.gyazo.com/b6c28c6af05cae1b310c370e0b56831f.gif)](https://gyazo.com/b6c28c6af05cae1b310c370e0b56831f)
+
+- ログインユーザーのトップページ
+デフォルトで、今月の仕分帳を表示しています。
+仕分登録機能は、 `新しい仕分を作成` から仕分入力フォームへ遷移します。
+月度別仕分検索機能は、ajax通信を用いて画面遷移なしで、月度別の仕分張を表示します。
+[![Image from Gyazo](https://i.gyazo.com/ef88b2021f676530135bcf6efebcd079.png)](https://gyazo.com/ef88b2021f676530135bcf6efebcd079)
+[![Image from Gyazo](https://i.gyazo.com/2313835314845bb42dbeb301a0ec0733.gif)](https://gyazo.com/2313835314845bb42dbeb301a0ec0733)
+
 # テスト
 
 - RSpec
   - 単体テスト(model)
-
 
 # データベース設計
 

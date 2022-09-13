@@ -23,14 +23,18 @@ class BooksController < ApplicationController
   end
 
   def edit
-    # binding.pry
-    @book = Debit.joins(:list, :credit).select('debits.*', 'lists.code_name', 'credits.credit_amount').find(params[:id])
-    redirect_to books_path unless current_user.id == @book.user_id
+    @debit = Debit.joins(:credit).select('debits.*',  'credits.credit_amount', 'credits.c_list_id').find(params[:id])
+    debit_attributes = @debit.attributes
+    @debit_credit = DebitCredit.new(debit_attributes)
   end
 
   def update
-    @book = Debit.find(params[:id])
-    if @book.update(book_params)
+    @debit = Debit.find(params[:id])
+    @credit = Credit.where(debit_id: @debit.id)
+    @debit_credit = DebitCredit.new(debit_credit_params)
+    # バリデーションを実行
+    if @debit_credit.valid?
+      @debit_credit.update(debit_credit_params, @debit, @credit)
       redirect_to books_path
     else
       render :edit
@@ -46,7 +50,7 @@ class BooksController < ApplicationController
 
   def debit_credit_params
     params.require(:debit_credit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount,
-                                         :c_list_id).merge(user_id: current_user.id)
+                                          :c_list_id).merge(user_id: current_user.id)
   end
 
   def set_q
@@ -54,5 +58,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
+    params.require(:debit).permit(:date, :debit_amount, :memo, :d_list_id, :credit_amount, :c_list_id).merge(user_id: current_user.id)
   end
 end

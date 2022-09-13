@@ -55,16 +55,21 @@ https://moneyforest.herokuapp.com/ <br>
 
 # 使い方
 
-**新規登録機能** <br>
-deviseを用いて、Wizard形式にて実装しました。<br>
+**■ ログアウトユーザーのトップページ** <br>
+右上の `ログイン` または `アカウント作成` から、ログインすることができます。<br>
+新規登録機能は、deviseを用いて、Wizard形式にて実装しました。<br>
 入力に不備があった場合はアラートを出し、ユーザーが直感的に操作できる仕様にしました。
+
 [![Image from Gyazo](https://i.gyazo.com/b6c28c6af05cae1b310c370e0b56831f.gif)](https://gyazo.com/b6c28c6af05cae1b310c370e0b56831f)
 
-**ログインユーザーのトップページ** <br>
-デフォルトで、今月の仕分帳を表示する仕様です。　<br>
+**■ ログインユーザーのトップページ** <br>
+デフォルトで、今月の仕分帳をトップページに表示する仕様です。　<br>
 月度別仕分検索機能は、ajax通信を用いて画面遷移なしで、月度別の仕訳帳を表示します。<br>
-仕分登録機能は、 `新しい仕分を作成` から仕分入力フォームへ遷移します。　
+仕分登録機能は、 `新しい仕分を作成` から仕分入力フォームへ遷移します。　<br>
+`編集・削除` ボタンから、仕分けの編集と削除が可能です。
+
 [![Image from Gyazo](https://i.gyazo.com/2313835314845bb42dbeb301a0ec0733.gif)](https://gyazo.com/2313835314845bb42dbeb301a0ec0733)
+
 [![Image from Gyazo](https://i.gyazo.com/ef88b2021f676530135bcf6efebcd079.png)](https://gyazo.com/ef88b2021f676530135bcf6efebcd079)
 
 # 開発にあたって

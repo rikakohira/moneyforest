@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+  <div class="mein">
+
+    <!-- ナビ -->
+    <%= render "shared/list_nav" %>
+
+    <!-- 勘定科目リスト -->
+    <div class="mypage-area">
+      <div class="mypage-field1">
+
+    <h1>資産</h1>
+    <% @asset.each do |asset| %>
+    <%= asset.code_name %>
+    <% end %>
+
+    <h1>負債</h1>
+    <% @debt.each do |debt| %>
+    <%= debt.code_name %>
+    <% end %>
+
+    <h1>純資産</h1>
+    <% @net_asset.each do |net_asset| %>
+    <%= net_asset.code_name %>
+    <% end %>
+
+    <h1>費用</h1>
+    <% @expence.each do |expence| %>
+    <%= expence.code_name %>
+    <% end %>
+
+    <h1>損益</h1>
+    <% @profit.each do |profit| %>
+    <%= profit.code_name %>
+    <% end %>
+
+    <h1>収入</h1>
+    <% @income.each do |income| %>
+    <%= income.code_name %>
+    <% end %>
+
+
+
+
+
+
+
+        </div>
+      </div>
+  </div>
+</div>

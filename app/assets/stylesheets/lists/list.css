@@ -44,10 +44,12 @@
 
 .upper-left {
   width: 420px;
+  padding-right: 40px;
 }
 
 .upper-right {
   width: 420px;
+  padding-right: 40px;
 }
 
 .upper-right-upper {
@@ -63,10 +65,12 @@
 
 .lower-left {
   width: 420px;
+  padding-right: 40px;
 }
 
 .lower-right {
   width: 420px;
+  padding-right: 40px;
 }
 
 .lower-right-upper {

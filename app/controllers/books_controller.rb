@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
   def index
     # 今月のデータを取得
-    @books = Debit.where(date: Time.now.all_month)
+    @books = Debit.where(user_id: current_user.id, date: Time.now.all_month)
   end
 
   def new

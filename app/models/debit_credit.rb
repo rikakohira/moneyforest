@@ -20,7 +20,7 @@ class DebitCredit
 
   def update(params, debit, credit)
     debit.update(debit_amount: params[:debit_amount], memo: params[:memo], d_list_id: params[:d_list_id],
-                 user_id: params[:user_id])
+                user_id: params[:user_id])
     credit.update(credit_amount: params[:credit_amount], c_list_id: params[:c_list_id], debit_id: debit.id)
   end
 end

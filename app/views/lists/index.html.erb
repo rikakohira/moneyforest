@@ -1,51 +1,79 @@
-<div class="wrapper">
+<div class="lists-wrapper">
   <%= render "shared/header" %>
-  <div class="mein">
+  <div class="list-mein">
 
     <!-- ナビ -->
     <%= render "shared/list_nav" %>
 
     <!-- 勘定科目リスト -->
-    <div class="mypage-area">
-      <div class="mypage-field1">
-
-    <h1>資産</h1>
-    <% @asset.each do |asset| %>
-    <%= asset.code_name %>
-    <% end %>
-
-    <h1>負債</h1>
-    <% @debt.each do |debt| %>
-    <%= debt.code_name %>
-    <% end %>
-
-    <h1>純資産</h1>
-    <% @net_asset.each do |net_asset| %>
-    <%= net_asset.code_name %>
-    <% end %>
-
-    <h1>費用</h1>
-    <% @expence.each do |expence| %>
-    <%= expence.code_name %>
-    <% end %>
-
-    <h1>損益</h1>
-    <% @profit.each do |profit| %>
-    <%= profit.code_name %>
-    <% end %>
-
-    <h1>収入</h1>
-    <% @income.each do |income| %>
-    <%= income.code_name %>
-    <% end %>
-
-
-
-
-
-
-
+    <div class="list-area">
+      <div class="list-field">
+        <div class="list-upper">
+          <div class="upper-left">
+            <div class="list-title">資産</div>
+            <ul class="list-group list-group-flush">
+              <% @asset.each do |asset| %>
+              <li class="list-group-item">
+                <%= asset.code_name %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="upper-right">
+            <div class="upper-right-upper">
+              <div class="list-title">負債</div>
+              <ul class="list-group list-group-flush">
+                <% @debt.each do |debt| %>
+                <li class="list-group-item">
+                  <%= debt.code_name %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="list-title">純資産</div>
+            <ul class="list-group list-group-flush">
+              <% @net_asset.each do |net_asset| %>
+              <li class="list-group-item">
+                <%= net_asset.code_name %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="list-lower">
+          <div class="lower-left">
+            <div class="list-title">費用</div>
+            <ul class="list-group list-group-flush">
+              <% @expence.each do |expence| %>
+              <li class="list-group-item">
+                <%= expence.code_name %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="lower-right">
+            <div class="lower-right-upper">
+              <div class="list-title">収入</div>
+              <ul class="list-group list-group-flush">
+                <% @income.each do |income| %>
+                <li class="list-group-item">
+                  <%= income.code_name %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="list-title">損益</div>
+            <ul class="list-group list-group-flush">
+              <% @profit.each do |profit| %>
+              <li class="list-group-item">
+                <%= profit.code_name %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
+
   </div>
 </div>

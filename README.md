@@ -52,6 +52,8 @@ https://moneyforest.herokuapp.com/ <br>
 	
 - 現在開発中の機能
 	- 集計機能
+        - マニュアル作成
+　　　　　
 
 # 使い方
 

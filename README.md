@@ -49,6 +49,10 @@ https://moneyforest.herokuapp.com/ <br>
 	- 仕分登録機能(Formオブジェクト)
 	- 編集・削除機能
 	- 仕分検索機能(Ajax)
+
+- その他機能
+	- 勘定科目一覧リスト
+	- 上記の編集機能(activerecord-import)
 	
 - 現在開発中の機能
 	- 集計機能

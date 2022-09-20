@@ -58,6 +58,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'active_hash'
 gem 'ransack'
+gem 'activerecord-import'
 
 group :production do
   gem 'unicorn', '5.4.1'

@@ -16,16 +16,7 @@
 [![Image from Gyazo](https://i.gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3.jpg)](https://gyazo.com/a32c831a143d37a8fe6c8dda4d1eded3)
 
 # URL
-
-https://moneyforest.herokuapp.com/ <br>
-画面右上から新規登録を行うことができます。
-
-- ユーザー名：hirata
-- パスワード：Zaq12wsx
-- テスト用アカウント
-	- ユーザー名：hirata
-	- メールアドレス：a@test
-	- パスワード：111qqq
+※保留
 
 # 使用技術
 
